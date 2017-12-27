@@ -16,7 +16,7 @@ import GoogleMaps
 import GooglePlaces
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, FIRMessagingDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
 
     var window: UIWindow?
     static var mainMenuController: UIViewController?
@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 completionHandler: {_, _ in })
             
             // For iOS 10 data message (sent via FCM)
-            FIRMessaging.messaging().remoteMessageDelegate = self
+            Messaging.messaging().delegate = self
             
         } else {
             let settings: UIUserNotificationSettings =
@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         application.registerForRemoteNotifications()
         
         
-        FIRApp.configure()
+        FirebaseApp.configure()
         
         GMSServices.provideAPIKey(googleMapsAPIKey)
         GMSPlacesClient.provideAPIKey(googleMapsAPIKey)
@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
     
-    func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
+    func application(received remoteMessage: MessagingRemoteMessage) {
         
         print("[Firebase] Message received: \(remoteMessage)")
         

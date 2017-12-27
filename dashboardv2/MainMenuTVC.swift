@@ -61,7 +61,7 @@ class MainMenuTVC: UITableViewController {
         self.performSegue(withIdentifier: "DB_GOTO_SETTINGS", sender: self)
     }
     
-    func gotoProfile(sender: UIEvent) {
+    @objc func gotoProfile(sender: UIEvent) {
         
         self.performSegue(withIdentifier: "DB_GOTO_PROFILE", sender: self)
         

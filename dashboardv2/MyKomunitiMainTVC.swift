@@ -47,6 +47,8 @@ class MyKomunitiMainTVC: UITableViewController {
         }
         
         ZUISetup.setupTableViewWithTabView(tableView: self)
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 70.0
     
         self.loadData()
     }
@@ -105,7 +107,7 @@ class MyKomunitiMainTVC: UITableViewController {
         self.detailsToSend = [:]
     }
     
-    func populateData(data: NSDictionary)
+    @objc func populateData(data: NSDictionary)
     {
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
@@ -119,7 +121,7 @@ class MyKomunitiMainTVC: UITableViewController {
         
         let extractNotificationWrapper: NSDictionary = data.value(forKey: "object") as! NSDictionary
         
-        print(extractNotificationWrapper)
+        //print(extractNotificationWrapper)
         
         let pagingMaxFromAPI: Int = extractNotificationWrapper.value(forKey: "last_page") as! Int
         let getData: NSArray = extractNotificationWrapper.value(forKey: "data") as! NSArray
@@ -218,13 +220,33 @@ class MyKomunitiMainTVC: UITableViewController {
                 return reloadCell!
             }
             else {
-                let cell: MyKomunitiMainTVCell = tableView.dequeueReusableCell(withIdentifier: "MyKomunitiMainCellID") as! MyKomunitiMainTVCell
-        
-                cell.selectionStyle = UITableViewCellSelectionStyle.default
-                tableView.allowsSelection = true
-                cell.updateCell(data: dataArrays.object(at: indexPath.row) as! NSDictionary)
-            
-                return cell
+                
+                let dataInDict: NSDictionary = dataArrays.object(at: indexPath.row) as! NSDictionary
+                let imageArray: NSArray = dataInDict.value(forKey: "MESSAGE_IMAGES") as! NSArray
+                
+                if(imageArray.count != 0) {
+                    print("imagedata avail")
+                    ////MyKomunitiMainPicCellID
+                    let cell: MyKomunitiMainTVCell = tableView.dequeueReusableCell(withIdentifier: "MyKomunitiMainPicCellID") as! MyKomunitiMainTVCell
+                    
+                    cell.selectionStyle = UITableViewCellSelectionStyle.default
+                    tableView.allowsSelection = true
+                    cell.updateCell(data: dataInDict)
+                    cell.includePic(data: dataInDict)
+                    
+                    return cell
+                }
+                else {
+                    let cell: MyKomunitiMainTVCell = tableView.dequeueReusableCell(withIdentifier: "MyKomunitiMainCellID") as! MyKomunitiMainTVCell
+                    
+                    cell.selectionStyle = UITableViewCellSelectionStyle.default
+                    tableView.allowsSelection = true
+                    cell.updateCell(data: dataInDict)
+                    
+                    return cell
+                }
+                
+                
             }
         }
     }
@@ -252,9 +274,9 @@ class MyKomunitiMainTVC: UITableViewController {
             
         }
     }
-
+    /*
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
+        //300
         if(self.canReloadMore == true && indexPath.row == dataArrays.count)
         {
             return 70.0
@@ -265,7 +287,7 @@ class MyKomunitiMainTVC: UITableViewController {
         }
         
     }
-
+ */
     
     // MARK: - Navigation
 

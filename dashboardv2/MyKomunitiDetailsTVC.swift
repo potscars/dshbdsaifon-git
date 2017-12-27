@@ -80,13 +80,22 @@ class MyKomunitiDetailsTVC: UITableViewController {
                 
             }
             else {
-                
+                /*
                 let cell: MyKomunitiDetailsTVCell = tableView.dequeueReusableCell(withIdentifier: "MyKomunitiDetailsImageCellID") as! MyKomunitiDetailsTVCell
                 
                 //cell.updateDescCell(data: detailsData)
                 let image: NSDictionary = imagesAvailable!.object(at: indexPath.row - 3) as! NSDictionary
                 
                 cell.updateImage(data: image.value(forKey: "large") as! NSDictionary)
+                
+                return cell
+                */
+                
+                let cell: MyKomunitiDetailsTVCell = tableView.dequeueReusableCell(withIdentifier: "MyKomunitiDetailsImageSlideShowCellID") as! MyKomunitiDetailsTVCell
+                
+                //let image: NSDictionary = imagesAvailable!.object(at: indexPath.row - 3) as! NSDictionary
+                
+                cell.updateImageArrayed(data: imagesAvailable!, withViewController: self)
                 
                 return cell
                 

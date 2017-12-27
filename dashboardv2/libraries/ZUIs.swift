@@ -36,7 +36,7 @@ class ZUIs: NSObject {
                 
             }
             
-            alertView.dismiss(animated: true, completion: { (Void) in })
+            alertView.dismiss(animated: true, completion: { () ->  Void in })
         
         })
         

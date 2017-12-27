@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PlainPing
 
 class DBWebServices: NSObject {
     
@@ -29,7 +28,7 @@ class DBWebServices: NSObject {
         else
         {
             print("[Libraries] Has internet connection.")
-            
+            /*
             PlainPing.ping("http://dashboard.pi1m.my", withTimeout: 1.0, completionBlock: {(timeElapsed:Double?, error:Error?) in
             
                 if let latency = timeElapsed {
@@ -42,8 +41,8 @@ class DBWebServices: NSObject {
                     print("[DBWebServices] Ping error: \(error.localizedDescription)")
                     
                 }
-            
             })
+             */
             
             return true
         }

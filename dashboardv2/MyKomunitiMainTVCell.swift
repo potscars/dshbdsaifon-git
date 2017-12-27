@@ -17,6 +17,7 @@ class MyKomunitiMainTVCell: UITableViewCell {
     @IBOutlet weak var uilMKMTVCDate: UILabel!
     @IBOutlet weak var uilMKMTVCMsgTitle: UILabel!
     @IBOutlet weak var uilMKMTVCMsgSum: UILabel!
+    @IBOutlet weak var uiivMKMTVCMsgPic: UIImageView!
     
     
     override func awakeFromNib() {
@@ -39,6 +40,18 @@ class MyKomunitiMainTVCell: UITableViewCell {
         uilMKMTVCMsgTitle.text = data.value(forKey: "MESSAGE_TITLE") as? String ?? ""
         uilMKMTVCMsgSum.text = ZParsers.parseAllHTMLStrings(stringToParse: data.value(forKey: "MESSAGE_SUMMARY") as? String) ?? "Tiada Huraian"
         uilMKMTVCDate.text = ZDateTime.dateFormatConverter(valueInString: data.value(forKey: "MESSAGE_DATE") as! String, dateTimeFormatFrom: nil, dateTimeFormatTo: ZDateTime.DateInShort)
+    }
+    
+    func includePic(data: NSDictionary) {
+        
+        let picArray: NSArray = data.value(forKey: "MESSAGE_IMAGES") as! NSArray
+        let getPic: NSDictionary = picArray.object(at: 0) as! NSDictionary
+        let largePic: NSDictionary = getPic.value(forKey: "large") as! NSDictionary
+        let pic: String = String.init(format: "%@%@", largePic.value(forKey: "domain") as! String,largePic.value(forKey: "full_path") as! String)
+        let picInURL: URL = URL.init(string: pic)!
+        
+        uiivMKMTVCMsgPic.kf.setImage(with: picInURL)
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

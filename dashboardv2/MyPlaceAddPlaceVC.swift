@@ -76,7 +76,7 @@ class MyPlaceAddPlaceVC: UIViewController {
         
         self.navigationController?.navigationBar.barTintColor = DBColorSet.myPlacePrimaryColor
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         self.navigationItem.title = "Add Place"
     }
     

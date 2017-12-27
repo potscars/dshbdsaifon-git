@@ -56,7 +56,7 @@ class MyKomunitiSendMsgImgPreviewVC: UIViewController {
         
         let alertNoAction: UIAlertAction = UIAlertAction.init(title: "Tidak", style: UIAlertActionStyle.default, handler: { (action) in
             
-            alertView.dismiss(animated: true, completion: { (Void) in })
+            alertView.dismiss(animated: true, completion: { () -> Void in })
             
         })
         
@@ -68,7 +68,7 @@ class MyKomunitiSendMsgImgPreviewVC: UIViewController {
             
             _ = self.navigationController?.popViewController(animated: true)
             
-            alertView.dismiss(animated: true, completion: { (Void) in })
+            alertView.dismiss(animated: true, completion: { () -> Void in })
             
         })
         

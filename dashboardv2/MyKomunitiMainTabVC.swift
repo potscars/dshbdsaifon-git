@@ -20,8 +20,10 @@ class MyKomunitiMainTabVC: UITabBarController {
         self.tabBar.barTintColor = UIColor.init(cgColor: DBColorSet.myKomunitiColor.cgColor)
         let firstTabBar: UITabBarItem = self.tabBar.items![0] as UITabBarItem
         let secondTabBar: UITabBarItem = self.tabBar.items![1] as UITabBarItem
+        /*
         ZGraphics.adjustTextBarToTextOnly(tabBarItem: firstTabBar, normalStateDefinedAttributes: [NSFontAttributeName:UIFont.init(name: "RobotoCondensed-Regular", size: 18.0)!,NSForegroundColorAttributeName:UIColor.lightGray], selectedStateDefinedAttributes: [NSFontAttributeName:UIFont.init(name: "RobotoCondensed-Bold", size: 18.0)!,NSForegroundColorAttributeName:UIColor.white])
         ZGraphics.adjustTextBarToTextOnly(tabBarItem: secondTabBar, normalStateDefinedAttributes: [NSFontAttributeName:UIFont.init(name: "RobotoCondensed-Regular", size: 18.0)!,NSForegroundColorAttributeName:UIColor.lightGray], selectedStateDefinedAttributes: [NSFontAttributeName:UIFont.init(name: "RobotoCondensed-Bold", size: 18.0)!,NSForegroundColorAttributeName:UIColor.white])
+         */
     }
 
     override func didReceiveMemoryWarning() {

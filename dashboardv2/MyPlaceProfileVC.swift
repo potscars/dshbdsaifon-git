@@ -38,7 +38,7 @@ class MyPlaceProfileVC: UIViewController {
         self.navigationItem.rightBarButtonItem = homeButton
     }
     
-    func dismissMyPlace() {
+    @objc func dismissMyPlace() {
         
         dismiss(animated: true, completion: nil)
     }
@@ -46,7 +46,7 @@ class MyPlaceProfileVC: UIViewController {
     func configureNavBar() {
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.barTintColor = DBColorSet.myPlacePrimaryColor
         title = "My Profile"
     }
