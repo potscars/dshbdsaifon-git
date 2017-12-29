@@ -69,7 +69,7 @@ class WeatherMainTVC: UITableViewController, CLLocationManagerDelegate {
         
     }
 
-    func populateData(data: NSNotification) {
+    @objc func populateData(data: NSNotification) {
         
         let unWrapObject = data.value(forKey: "object") as! NSDictionary
         let statusReceives: Int = unWrapObject.value(forKey: "status") as! Int

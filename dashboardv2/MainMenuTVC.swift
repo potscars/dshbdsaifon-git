@@ -54,7 +54,7 @@ class MainMenuTVC: UITableViewController {
         ZGraphics.applyNavigationBarColor(controller: self, setBarTintColor: DBColorSet.dashboardKBTertiaryColor, setBackButtonFontColor: UIColor.init(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0), setBarFontColor: UIColor.init(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0), setBarFontFace: UIFont.init(name: "Arial-BoldMT", size: CGFloat(17.0))!)
     }
     
-    func gotoSettings(sender: UIEvent)
+    @objc func gotoSettings(sender: UIEvent)
     {
         print("[MainMenuTVC] Open settings \(sender)!")
         

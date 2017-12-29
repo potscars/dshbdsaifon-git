@@ -60,7 +60,7 @@ class MyPlaceMainVC: UIViewController {
         self.navigationItem.rightBarButtonItem = homeButton
     }
     
-    func dismissMyPlace() {
+    @objc func dismissMyPlace() {
         
         dismiss(animated: true, completion: nil)
     }
@@ -139,7 +139,7 @@ class MyPlaceMainVC: UIViewController {
         navigationButton.addTarget(self, action: #selector(navButtonTapped(_:)), for: .touchUpInside)
     }
     
-    func navButtonTapped(_ sender: UIButton) {
+    @objc func navButtonTapped(_ sender: UIButton) {
         
         let alertController = UIAlertController(title: "Navigation", message: "Anda pasti untuk pergi ke \(destinationString!)?", preferredStyle: .alert)
         

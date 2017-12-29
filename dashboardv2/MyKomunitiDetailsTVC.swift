@@ -96,6 +96,8 @@ class MyKomunitiDetailsTVC: UITableViewController {
                 //let image: NSDictionary = imagesAvailable!.object(at: indexPath.row - 3) as! NSDictionary
                 
                 cell.updateImageArrayed(data: imagesAvailable!, withViewController: self)
+                //cell.uibMKDTVCDldImg.addTarget(self, action: #selector(performDownloadImage(sender:)), for: UIControlEvents.touchUpInside)
+                
                 
                 return cell
                 
@@ -103,36 +105,41 @@ class MyKomunitiDetailsTVC: UITableViewController {
         
         } else {
         
-        if(indexPath.row == 0){
+            if(indexPath.row == 0){
             
-            let cell: MyKomunitiDetailsTVCell = tableView.dequeueReusableCell(withIdentifier: "MyKomunitiDetailsSenderCellID") as! MyKomunitiDetailsTVCell
+                let cell: MyKomunitiDetailsTVCell = tableView.dequeueReusableCell(withIdentifier: "MyKomunitiDetailsSenderCellID") as! MyKomunitiDetailsTVCell
     
-            cell.updateSenderCell(data: detailsData)
+                cell.updateSenderCell(data: detailsData)
             
-            return cell
-        }
-        else if(indexPath.row == 1){
+                return cell
+            }
+            else if(indexPath.row == 1){
             
-            let cell: MyKomunitiDetailsTVCell = tableView.dequeueReusableCell(withIdentifier: "MyKomunitiDetailsTitleCellID") as! MyKomunitiDetailsTVCell
+                let cell: MyKomunitiDetailsTVCell = tableView.dequeueReusableCell(withIdentifier: "MyKomunitiDetailsTitleCellID") as! MyKomunitiDetailsTVCell
             
-            cell.updateTitleCell(data: detailsData)
+                cell.updateTitleCell(data: detailsData)
             
-            return cell
-        }
-        else {
+                return cell
+            }
+            else {
             
-            let cell: MyKomunitiDetailsTVCell = tableView.dequeueReusableCell(withIdentifier: "MyKomunitiDetailsDescCellID") as! MyKomunitiDetailsTVCell
+                let cell: MyKomunitiDetailsTVCell = tableView.dequeueReusableCell(withIdentifier: "MyKomunitiDetailsDescCellID") as! MyKomunitiDetailsTVCell
             
-            cell.updateDescCell(data: detailsData)
+                cell.updateDescCell(data: detailsData)
             
-            return cell
+                return cell
             
-        }
+            }
 
         }
 
     }
     
+    @objc func performDownloadImage(sender: UIButton) {
+        
+        //UIImageWriteToSavedPhotosAlbum(self.uiivMKDTVCImages.image!, self, #selector(saveImage(image:error:context:)), nil)
+        print("downloading")
+    }
     
 
     /*

@@ -96,13 +96,13 @@ class LoginSelectionVC: UIViewController, FBSDKLoginButtonDelegate {
         
     }
     
-    func openRegister(button: UIButton) {
+    @objc func openRegister(button: UIButton) {
         
         if(DBWebServices.checkConnectionToDashboard(viewController: self) == true) { self.performSegue(withIdentifier: "DB_GOTO_REGISTER_USER", sender: self) }
         
     }
     
-    func loginWithIC(button: UIButton) {
+    @objc func loginWithIC(button: UIButton) {
         
         if(DBWebServices.checkConnectionToDashboard(viewController: self) == true) { self.performSegue(withIdentifier: "DB_GOTO_LOGIN_IC", sender: self) }
         

@@ -31,7 +31,7 @@ class FilterOptionsCell: UITableViewCell {
         placeOfInterestSwitch.addTarget(self, action: #selector(placeOfInterestSwitchChange(_:)), for: .touchUpInside)
     }
     
-    func accomodationSwitchChange(_ sender: UISwitch) {
+    @objc func accomodationSwitchChange(_ sender: UISwitch) {
         
         if accomodationSwitch.isOn {
             
@@ -40,7 +40,7 @@ class FilterOptionsCell: UITableViewCell {
         }
     }
     
-    func foodBeveragesSwitchChange(_ sender: UISwitch) {
+    @objc func foodBeveragesSwitchChange(_ sender: UISwitch) {
         
         if foodBeveragseSwitch.isOn {
             
@@ -49,7 +49,7 @@ class FilterOptionsCell: UITableViewCell {
         }
     }
     
-    func placeOfInterestSwitchChange(_ sender: UISwitch) {
+    @objc func placeOfInterestSwitchChange(_ sender: UISwitch) {
         
         if placeOfInterestSwitch.isOn {
             

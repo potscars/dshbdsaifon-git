@@ -60,7 +60,7 @@ class MyKomunitiMainAdminTVC: UITableViewController {
         
     }
     
-    func refreshed(_ sender: UIRefreshControl) {
+    @objc func refreshed(_ sender: UIRefreshControl) {
         
         self.isRefreshing = true
         self.loadDataToView()

@@ -57,13 +57,13 @@ class LoginRegisterVC: UIViewController, UITextFieldDelegate {
         
     }
     
-    func returnToLogin(button: UIButton) {
+    @objc func returnToLogin(button: UIButton) {
         
         _ = self.navigationController?.popToRootViewController(animated: true)
         
     }
     
-    func performRegister(button: UIButton) {
+    @objc func performRegister(button: UIButton) {
         
         if(uitfLRVCNameField.text == "" || uitfLRVCNameField.text == nil) {
             

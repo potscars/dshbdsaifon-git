@@ -29,7 +29,7 @@ class LoginRegisterProcessVC: UIViewController {
         DBWebServices.getRegistrationData(fromViewController: self, data: registrationData!, registeredNotification: notificationName.rawValue)
     }
     
-    func registerResult(data: NSDictionary) {
+    @objc func registerResult(data: NSDictionary) {
         
         let breakDown = data.value(forKey: "object") as! NSDictionary
         

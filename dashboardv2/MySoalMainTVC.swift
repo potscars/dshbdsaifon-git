@@ -59,7 +59,7 @@ class MySoalMainTVC: UITableViewController {
         NotificationCenter.default.removeObserver(self, name: Notification.Name(registeredNotification), object: nil);
     }
     
-    func refreshed(_ sender: UIRefreshControl) {
+    @objc func refreshed(_ sender: UIRefreshControl) {
         
         self.isRefreshing = true
         self.loadDataToView()
@@ -88,7 +88,7 @@ class MySoalMainTVC: UITableViewController {
         self.detailsToSend = [:]
     }
     
-    func populateData(data: NSDictionary)
+    @objc func populateData(data: NSDictionary)
     {
         
         if isFirstLoad || isRefreshing {

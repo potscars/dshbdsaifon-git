@@ -72,7 +72,7 @@ class MyKomunitiMainTVC: UITableViewController {
         }
     }
     
-    func refreshed(_ sender: UIRefreshControl) {
+    @objc func refreshed(_ sender: UIRefreshControl) {
         
         self.isRefreshing = true
         self.loadData()
@@ -93,7 +93,7 @@ class MyKomunitiMainTVC: UITableViewController {
         }
     }
     
-    func errorNotification(errorMessage: String) {
+    @objc func errorNotification(errorMessage: String) {
         
         print("Error Detected!")
     }
@@ -133,7 +133,7 @@ class MyKomunitiMainTVC: UITableViewController {
             
             dataArrays.add(["MESSAGE_LEVEL":"AWAM",
                             "MESSAGE_SENDER":getUserData.value(forKey: "full_name") as! String,
-                            "MESSAGE_DATE":getUserData.value(forKey: "updated_at") as! String,
+                            "MESSAGE_DATE":extractedData.value(forKey: "updated_at") as! String,
                             "MESSAGE_TITLE":extractedData.value(forKey: "title") as! String,
                             "MESSAGE_SUMMARY":extractedData.value(forKey: "excerpt") as! String,
                             "MESSAGE_DESC":extractedData.value(forKey: "content") as! String,
@@ -180,8 +180,6 @@ class MyKomunitiMainTVC: UITableViewController {
         if(self.canReloadMore == true) { dataCount += 1 }
         
         if(self.isFirstLoad == true) { dataCount = 1 }
-        
-        print("[MyKomunitiMainTVC] Data count is \(dataCount)")
         
         return dataCount
     }
@@ -234,6 +232,7 @@ class MyKomunitiMainTVC: UITableViewController {
                     cell.updateCell(data: dataInDict)
                     cell.includePic(data: dataInDict)
                     
+                    
                     return cell
                 }
                 else {
@@ -266,6 +265,7 @@ class MyKomunitiMainTVC: UITableViewController {
                 
                 DBWebServices.getMyKomunitiPublicFeed(self, page: self.paging, registeredNotification: self.registeredNotification)
             }
+            
         }
         else if(DBWebServices.checkConnectionToDashboard(viewController: self) == true) {
             

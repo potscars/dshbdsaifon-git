@@ -167,7 +167,7 @@ class MyShopIntegratedTVCell: UITableViewCell {
         
     }
     
-    func didTap() {
+    @objc func didTap() {
         issMSITVCDetailsPicture.presentFullScreenController(from: listingViewController!)
     }
     

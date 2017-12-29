@@ -50,7 +50,7 @@ class MyKomunitiSendMsgImgPreviewVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func processingItem(sender: UIButton) {
+    @objc func processingItem(sender: UIButton) {
         
         let alertView: UIAlertController = UIAlertController.init(title: "Buang", message: "Anda pasti ingin membuang gambar ini?", preferredStyle: UIAlertControllerStyle.alert)
         

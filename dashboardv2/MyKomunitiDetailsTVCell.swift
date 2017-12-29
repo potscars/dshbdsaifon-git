@@ -12,6 +12,7 @@
 
 import UIKit
 import ImageSlideshow
+import Kingfisher
 
 class MyKomunitiDetailsTVCell: UITableViewCell {
 
@@ -25,6 +26,11 @@ class MyKomunitiDetailsTVCell: UITableViewCell {
     @IBOutlet weak var isMKDTVCImagesSlides: ImageSlideshow!
     
     var enlargeImageViewController: UIViewController? = nil
+    var parentViewController: UIViewController? = nil
+    
+    @IBOutlet weak var uibMKDTVCDldImg: UIButton!
+    
+    var imageUrlsInArray: NSMutableArray = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -56,12 +62,11 @@ class MyKomunitiDetailsTVCell: UITableViewCell {
         
         ZImages.getImageFromUrlSession(fromURL: combinationPath, defaultImage: "ic_imagebroken", imageView: self.uiivMKDTVCImages)
         
-        //uiivMKDTVCImages.image = UIImage.ini
-        
     }
     
     func updateImageArrayed(data: NSArray, withViewController: UIViewController) {
         
+        parentViewController = withViewController
         enlargeImageViewController = withViewController
         
         isMKDTVCImagesSlides.backgroundColor = UIColor.darkGray
@@ -78,18 +83,20 @@ class MyKomunitiDetailsTVCell: UITableViewCell {
         for i in 0...data.count - 1 {
             
             let unwrappedPhotos: NSDictionary = data.object(at: i) as! NSDictionary
-            print("Image in nsdict: \(unwrappedPhotos)")
-            
             let selectPhotos: NSDictionary = unwrappedPhotos.value(forKey: "large") as! NSDictionary
             let grabPhotos: String = "\(selectPhotos.value(forKey: "domain") as! String)\(selectPhotos.value(forKey: "full_path") as! String)"
             
             print("photos grabbed: \(grabPhotos)")
             
+            imageUrlsInArray.add(grabPhotos)
             arrayPhotos.append(KingfisherSource(urlString: grabPhotos.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)!)
             
         }
         
         isMKDTVCImagesSlides.setImageInputs(arrayPhotos)
+        isMKDTVCImagesSlides.currentPageChanged = { page in print("current page changed \(page)") }
+
+        uibMKDTVCDldImg.addTarget(self, action: #selector(performDownloadImage(sender:)), for: UIControlEvents.touchUpInside)
         
     }
     
@@ -98,6 +105,35 @@ class MyKomunitiDetailsTVCell: UITableViewCell {
         isMKDTVCImagesSlides.presentFullScreenController(from: enlargeImageViewController!)
         
     }
+    
+    @objc func performDownloadImage(sender: UIButton) {
+        
+        ImageDownloader.default.downloadImage(with: URL.init(string: self.imageUrlsInArray.object(at: isMKDTVCImagesSlides.currentPage) as! String)!, retrieveImageTask: nil, options: nil, progressBlock: nil, completionHandler: { image, error, url, data in
+
+            if let error = error {
+                
+                ZUIs.showOKDialogBox(viewController: self.parentViewController!, dialogTitle: "Masalah", dialogMessage: "Gambar gagal disimpan. Sila hubungi petugas untuk tindakan. (\(error))", afterDialogDismissed: nil)
+                
+            }
+            else {
+                UIImageWriteToSavedPhotosAlbum(image!, self, #selector(self.saveImage(image:error:context:)), nil)
+            }
+        })
+        
+    }
+    
+    @objc func saveImage(image: UIImage, error: NSError?, context: UnsafeRawPointer) {
+        if let error = error {
+            print("not saved \(error)")
+            ZUIs.showOKDialogBox(viewController: self.parentViewController!, dialogTitle: "Masalah", dialogMessage: "Gambar gagal disimpan. Sila hubungi petugas untuk tindakan. (\(error))", afterDialogDismissed: nil)
+        }
+        else {
+            print("saved")
+            ZUIs.showOKDialogBox(viewController: self.parentViewController!, dialogTitle: "Disimpan", dialogMessage: "Gambar ini telah disimpan. Sila periksa di Photos.", afterDialogDismissed: nil)
+        }
+    }
+    
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

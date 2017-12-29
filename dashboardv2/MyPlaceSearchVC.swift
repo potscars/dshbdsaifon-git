@@ -52,7 +52,7 @@ class MyPlaceSearchVC: UIViewController {
         self.navigationItem.rightBarButtonItem = homeButton
     }
     
-    func dismissMyPlace() {
+    @objc func dismissMyPlace() {
         
         dismiss(animated: true, completion: nil)
     }
