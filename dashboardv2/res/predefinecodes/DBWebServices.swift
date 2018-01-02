@@ -262,6 +262,7 @@ class DBWebServices: NSObject {
         
         let getAnnouncementURL = NSURL.init(string: DBSettings.myKomunitiSendMsgURL)!
         //let getAnnouncementParams = String(format: "token=%@&content=%@&attachments[]=%@",dashToken,content,images)
+        //let getAnnouncementParams = "token=\(dashToken)&content=\(content)&attachments[]=\(images)"
         let getAnnouncementParams = "token=\(dashToken)&content=\(content)&attachments[]=\(images)"
         
         print("[DBWebServices] URL set: ",getAnnouncementParams )

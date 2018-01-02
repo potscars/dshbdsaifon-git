@@ -89,7 +89,7 @@ class MyKomunitiMainAdminTVC: UITableViewController {
         self.detailsToSend = [:]
     }
 
-    func populateData(data: NSDictionary) {
+    @objc func populateData(data: NSDictionary) {
         
         if self.isFirstLoad || self.isRefreshing {
             dataArrays.removeAllObjects()

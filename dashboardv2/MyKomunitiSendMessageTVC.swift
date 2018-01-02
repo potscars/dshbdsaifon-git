@@ -72,7 +72,7 @@ class MyKomunitiSendMessageTVC: UITableViewController, UITextViewDelegate {
         }
     }
     
-    func processingItem(sender: UIButton) {
+    @objc func processingItem(sender: UIButton) {
         
         print("[MyKomunitiSendMessageTVC] Sending message of \(contentText) with pictures \(imageGrabbed)")
         
@@ -85,7 +85,7 @@ class MyKomunitiSendMessageTVC: UITableViewController, UITextViewDelegate {
         //self.navigationController?.popViewController(animated: true)
     }
     
-    func populatePhotos(data: NSDictionary) {
+    @objc func populatePhotos(data: NSDictionary) {
         
         print("[MyKomunitiSendMessageTVC] image returned is \(data)")
         
@@ -103,7 +103,7 @@ class MyKomunitiSendMessageTVC: UITableViewController, UITextViewDelegate {
         }
     }
     
-    func sendResult(data: NSDictionary) {
+    @objc func sendResult(data: NSDictionary) {
         
         print("[MyKomunitiSendMessageTVC] result from sending annoucement is \(data)")
         

@@ -2952,15 +2952,12 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyKomunitiDetailsDescCellID" rowHeight="50" id="KNH-2t-35A" customClass="MyKomunitiDetailsTVCell" customModule="dashboardKB" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="158" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KNH-2t-35A" id="dGM-GI-8Ci">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KNH-2t-35A" id="dGM-GI-8Ci">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="The Password for the microsoft account has changed" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njH-Gk-VtV">
-                                            <rect key="frame" x="17" y="17" width="341" height="16"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="341" placeholder="YES" id="PMT-e1-p2c"/>
-                                            </constraints>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Password for the microsoft account has changed" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njH-Gk-VtV">
+                                            <rect key="frame" x="25" y="17" width="325" height="16"/>
                                             <fontDescription key="fontDescription" name="RobotoCondensed-Light" family="Roboto Condensed" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -2992,18 +2989,18 @@
                                             </constraints>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Evc-i4-X03">
-                                            <rect key="frame" x="102" y="239" width="170" height="30"/>
+                                            <rect key="frame" x="16" y="239" width="343" height="30"/>
                                             <state key="normal" title="Muaturun Gambar"/>
                                         </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="Evc-i4-X03" firstAttribute="top" secondItem="OiI-4m-VGx" secondAttribute="bottom" constant="8" id="5Hm-G9-LKi"/>
                                         <constraint firstItem="OiI-4m-VGx" firstAttribute="top" secondItem="6k7-9K-vgA" secondAttribute="top" constant="8" id="E47-5y-qAs"/>
-                                        <constraint firstItem="Evc-i4-X03" firstAttribute="leading" secondItem="6k7-9K-vgA" secondAttribute="leadingMargin" constant="86" id="Elp-d6-Pxp"/>
                                         <constraint firstAttribute="trailing" secondItem="OiI-4m-VGx" secondAttribute="trailing" constant="8" id="NkH-FT-xQf"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Evc-i4-X03" secondAttribute="trailing" constant="87" id="Uee-75-xuq"/>
+                                        <constraint firstItem="Evc-i4-X03" firstAttribute="leading" secondItem="6k7-9K-vgA" secondAttribute="leadingMargin" id="RPu-Vd-Eh7"/>
                                         <constraint firstItem="OiI-4m-VGx" firstAttribute="leading" secondItem="6k7-9K-vgA" secondAttribute="leading" constant="8" id="bhK-K0-zFH"/>
-                                        <constraint firstItem="Evc-i4-X03" firstAttribute="top" secondItem="OiI-4m-VGx" secondAttribute="bottom" constant="8" id="gPa-6H-ytL"/>
-                                        <constraint firstItem="Evc-i4-X03" firstAttribute="bottom" secondItem="6k7-9K-vgA" secondAttribute="bottomMargin" id="xeg-1l-lMq"/>
+                                        <constraint firstItem="Evc-i4-X03" firstAttribute="trailing" secondItem="6k7-9K-vgA" secondAttribute="trailingMargin" id="nTf-Ck-WBw"/>
+                                        <constraint firstItem="Evc-i4-X03" firstAttribute="bottom" secondItem="6k7-9K-vgA" secondAttribute="bottomMargin" id="rRF-aH-0TT"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

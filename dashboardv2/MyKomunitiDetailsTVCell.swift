@@ -108,11 +108,17 @@ class MyKomunitiDetailsTVCell: UITableViewCell {
     
     @objc func performDownloadImage(sender: UIButton) {
         
+        uibMKDTVCDldImg.titleLabel?.text = "Sedang memuatturun..."
+        uibMKDTVCDldImg.isEnabled = false
+        
         ImageDownloader.default.downloadImage(with: URL.init(string: self.imageUrlsInArray.object(at: isMKDTVCImagesSlides.currentPage) as! String)!, retrieveImageTask: nil, options: nil, progressBlock: nil, completionHandler: { image, error, url, data in
 
             if let error = error {
                 
                 ZUIs.showOKDialogBox(viewController: self.parentViewController!, dialogTitle: "Masalah", dialogMessage: "Gambar gagal disimpan. Sila hubungi petugas untuk tindakan. (\(error))", afterDialogDismissed: nil)
+                
+                self.uibMKDTVCDldImg.titleLabel?.text = "Muaturun Gambar"
+                self.uibMKDTVCDldImg.isEnabled = true
                 
             }
             else {
@@ -126,10 +132,16 @@ class MyKomunitiDetailsTVCell: UITableViewCell {
         if let error = error {
             print("not saved \(error)")
             ZUIs.showOKDialogBox(viewController: self.parentViewController!, dialogTitle: "Masalah", dialogMessage: "Gambar gagal disimpan. Sila hubungi petugas untuk tindakan. (\(error))", afterDialogDismissed: nil)
+            
+            self.uibMKDTVCDldImg.titleLabel?.text = "Muaturun Gambar"
+            self.uibMKDTVCDldImg.isEnabled = true
         }
         else {
             print("saved")
             ZUIs.showOKDialogBox(viewController: self.parentViewController!, dialogTitle: "Disimpan", dialogMessage: "Gambar ini telah disimpan. Sila periksa di Photos.", afterDialogDismissed: nil)
+            
+            self.uibMKDTVCDldImg.titleLabel?.text = "Muaturun Gambar"
+            self.uibMKDTVCDldImg.isEnabled = true
         }
     }
     
