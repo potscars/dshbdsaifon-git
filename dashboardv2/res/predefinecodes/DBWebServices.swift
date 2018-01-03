@@ -267,7 +267,7 @@ class DBWebServices: NSObject {
         
         print("[DBWebServices] URL set: ",getAnnouncementParams )
         
-        _ = ZNetwork.performPostData(url: getAnnouncementURL, parameters: getAnnouncementParams, contentType: nil, includeContentLength: true, notificationName: registeredNotification)
+        _ = ZNetwork.performPostData(url: getAnnouncementURL, parameters: getAnnouncementParams, contentType: nil, includeContentLength: false, notificationName: registeredNotification)
     }
     
     static func getAgenciesList(registeredNotification: String) {

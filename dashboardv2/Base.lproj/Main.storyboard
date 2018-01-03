@@ -7525,14 +7525,14 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyKomunitiPictureContentCellID" rowHeight="160" id="1kf-R3-LLh" customClass="MyKomunitiSendMessageTVCell" customModule="dashboardKB" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="87" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="1kf-R3-LLh" id="F67-77-TKj">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1kf-R3-LLh" id="F67-77-TKj">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CEN-g8-lGq">
-                                            <rect key="frame" x="8" y="11" width="359" height="138"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CEN-g8-lGq">
+                                            <rect key="frame" x="16" y="11" width="343" height="138"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="359" placeholder="YES" id="QXG-tH-rbA"/>
+                                                <constraint firstAttribute="width" secondItem="CEN-g8-lGq" secondAttribute="height" multiplier="343:138" id="2yL-3K-fXg"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
@@ -7544,6 +7544,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="nslcMKSTVCImagePickedConstraint" destination="2yL-3K-fXg" id="IuA-ym-ZOY"/>
                                     <outlet property="uiivMKSTVCImagePicked" destination="CEN-g8-lGq" id="pq2-iN-pDu"/>
                                 </connections>
                             </tableViewCell>

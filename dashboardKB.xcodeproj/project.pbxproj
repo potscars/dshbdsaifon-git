@@ -116,6 +116,7 @@
 		B7874DB31E69630800C4526A /* ZGeoPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7874DB21E69630800C4526A /* ZGeoPoint.swift */; };
 		B78E628A1DF7E00900D9767D /* ZDeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78E62891DF7E00900D9767D /* ZDeviceInfo.swift */; };
 		B78E628F1DF9617500D9767D /* DBStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78E628E1DF9617500D9767D /* DBStrings.swift */; };
+		B7908B091FFC96D2005FDD1C /* NetworkProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7908B081FFC96D1005FDD1C /* NetworkProcessor.swift */; };
 		B79167711E35BBAA00383CAD /* MySoalDetailsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79167701E35BBAA00383CAD /* MySoalDetailsTVC.swift */; };
 		B79167731E35BBF500383CAD /* MySoalDetailsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79167721E35BBF500383CAD /* MySoalDetailsTVCell.swift */; };
 		B79167761E35D71000383CAD /* MySkoolMainTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79167751E35D71000383CAD /* MySkoolMainTVC.swift */; };
@@ -346,6 +347,7 @@
 		B7874DB21E69630800C4526A /* ZGeoPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZGeoPoint.swift; path = libraries/ZGeoPoint.swift; sourceTree = "<group>"; };
 		B78E62891DF7E00900D9767D /* ZDeviceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZDeviceInfo.swift; path = libraries/ZDeviceInfo.swift; sourceTree = "<group>"; };
 		B78E628E1DF9617500D9767D /* DBStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBStrings.swift; path = res/predefinecodes/DBStrings.swift; sourceTree = "<group>"; };
+		B7908B081FFC96D1005FDD1C /* NetworkProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkProcessor.swift; sourceTree = "<group>"; };
 		B79167701E35BBAA00383CAD /* MySoalDetailsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySoalDetailsTVC.swift; sourceTree = "<group>"; };
 		B79167721E35BBF500383CAD /* MySoalDetailsTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySoalDetailsTVCell.swift; sourceTree = "<group>"; };
 		B79167751E35D71000383CAD /* MySkoolMainTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySkoolMainTVC.swift; sourceTree = "<group>"; };
@@ -794,6 +796,7 @@
 		B7A3C7081DEAEDB200CB7864 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				B7908B081FFC96D1005FDD1C /* NetworkProcessor.swift */,
 				B7583B4B1E2CB1F700C210AC /* ThirdPartyLibraries */,
 				B7A3C70B1DEAF2A900CB7864 /* CustomIndicator */,
 				B7A3C7091DEAEE2300CB7864 /* ZGraphics.swift */,
@@ -1315,6 +1318,7 @@
 				9E93B8591EDFE9A30090F62D /* MyPlaceMainAutoCompleteResultVC.swift in Sources */,
 				B76CA3AB1E8B64AE00DA2AF0 /* MyKomunitiSendMsgImgPreviewVC.swift in Sources */,
 				B7A3C6F91DE82F5600CB7864 /* LoginVC.swift in Sources */,
+				B7908B091FFC96D2005FDD1C /* NetworkProcessor.swift in Sources */,
 				B74F0EBD1E2732AD003887E4 /* MyKomunitiLoadMoreDataTVCell.swift in Sources */,
 				B74D337A1DF68ABB00208A03 /* DBColorSet.swift in Sources */,
 				B79167711E35BBAA00383CAD /* MySoalDetailsTVC.swift in Sources */,

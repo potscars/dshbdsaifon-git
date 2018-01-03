@@ -119,36 +119,40 @@ class MyKomunitiMainTVC: UITableViewController {
             
         else { self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none }
         
-        let extractNotificationWrapper: NSDictionary = data.value(forKey: "object") as! NSDictionary
-        
-        //print(extractNotificationWrapper)
-        
-        let pagingMaxFromAPI: Int = extractNotificationWrapper.value(forKey: "last_page") as! Int
-        let getData: NSArray = extractNotificationWrapper.value(forKey: "data") as! NSArray
-        
-        for i in 0...getData.count - 1 {
+        if data.value(forKey: "object") is NSDictionary {
+            let extractNotificationWrapper: NSDictionary = data.value(forKey: "object") as! NSDictionary
+            let pagingMaxFromAPI: Int = extractNotificationWrapper.value(forKey: "last_page") as! Int
+            let getData: NSArray = extractNotificationWrapper.value(forKey: "data") as! NSArray
             
-            let extractedData: NSDictionary = getData[i] as! NSDictionary
-            let getUserData: NSDictionary = extractedData.value(forKey: "user") as! NSDictionary
+            for i in 0...getData.count - 1 {
+                
+                let extractedData: NSDictionary = getData[i] as! NSDictionary
+                let getUserData: NSDictionary = extractedData.value(forKey: "user") as! NSDictionary
+                
+                dataArrays.add(["MESSAGE_LEVEL":"AWAM",
+                                "MESSAGE_SENDER":getUserData.value(forKey: "full_name") as! String,
+                                "MESSAGE_DATE":extractedData.value(forKey: "updated_at") as! String,
+                                "MESSAGE_TITLE":extractedData.value(forKey: "title") as! String,
+                                "MESSAGE_SUMMARY":extractedData.value(forKey: "excerpt") as! String,
+                                "MESSAGE_DESC":extractedData.value(forKey: "content") as! String,
+                                "MESSAGE_IMAGES":extractedData.value(forKey: "images") as? NSArray ?? []
+                    ])
+            }
+            print("[MyKomunitiMainTVC] \(dataArrays.count) per \(dataLimiter), maximum to \(pagingMaxFromAPI)")
             
-            dataArrays.add(["MESSAGE_LEVEL":"AWAM",
-                            "MESSAGE_SENDER":getUserData.value(forKey: "full_name") as! String,
-                            "MESSAGE_DATE":extractedData.value(forKey: "updated_at") as! String,
-                            "MESSAGE_TITLE":extractedData.value(forKey: "title") as! String,
-                            "MESSAGE_SUMMARY":extractedData.value(forKey: "excerpt") as! String,
-                            "MESSAGE_DESC":extractedData.value(forKey: "content") as! String,
-                            "MESSAGE_IMAGES":extractedData.value(forKey: "images") as? NSArray ?? []
-                ])
-        }
-        
-        print("[MyKomunitiMainTVC] \(dataArrays.count) per \(dataLimiter), maximum to \(pagingMaxFromAPI)")
-        
-        if(paging == pagingMaxFromAPI) {
+            if(paging == pagingMaxFromAPI) {
+                
+                self.canReloadMore = false
+            } else {
+                
+                self.canReloadMore = true
+            }
             
-            self.canReloadMore = false
         } else {
             
-            self.canReloadMore = true
+            let extractNotificationWrapper: String = (data.value(forKey: "object") as? String)!
+            
+            print("[MyKomunitiMainTVC] Unknown string return: \(extractNotificationWrapper)")
         }
         
         if (refreshControl?.isRefreshing)! {
