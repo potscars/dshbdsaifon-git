@@ -2841,6 +2841,15 @@
                                     <outlet property="uivMKMTVCIndicator" destination="08n-XG-vbu" id="X40-ni-jWC"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyKomunitiErrorCellID" rowHeight="100" id="0qO-E8-7VN" customClass="MyKomunitiMainTVCell" customModule="dashboardKB" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="638" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0qO-E8-7VN" id="le0-GR-U2w">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="sht-Fh-4mu" id="BIT-01-qQe"/>

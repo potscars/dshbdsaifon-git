@@ -34,7 +34,7 @@ class MySoalIntegratedTVCell: UITableViewCell {
         uilMSITVCArticleTitle.text = data.object(forKey: "MESSAGE_TITLE") as? String
         uilMSITVCArticleDate.text = data.object(forKey: "MESSAGE_DATE_SHORT") as? String
         uilMSITVCArticleDesc.text = data.object(forKey: "MESSAGE_SUMMARY") as? String
-        uivMSITVCLegendColor.backgroundColor = DBColorSet.mySoalColor
+        uivMSITVCLegendColor.backgroundColor = DBColorSet.dashboardKBTertiaryColor
     }
     
     func setLoadingState(isLoading: Bool)
@@ -51,7 +51,7 @@ class MySoalIntegratedTVCell: UITableViewCell {
     
     func setLoadMoreState(isLoadingMore: Bool)
     {
-        self.backgroundColor = DBColorSet.mySoalColor
+        self.backgroundColor = DBColorSet.dashboardKBTertiaryColor
         self.uilMSITVCLoadMoreStatus.textColor = UIColor.white
         
         if(isLoadingMore == true)

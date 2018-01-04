@@ -34,7 +34,7 @@ class MySkoolIntegratedTVCell: UITableViewCell {
         uilMSITVCArticleTitle.text = data.object(forKey: "MESSAGE_TITLE") as? String
         uilMSITVCArticleDate.text = ZDateTime.dateFormatConverter(valueInString: data.value(forKey: "MESSAGE_DATE") as! String, dateTimeFormatFrom: nil, dateTimeFormatTo: ZDateTime.DateInShort)
         uilMSITVCArticleDesc.text = data.object(forKey: "MESSAGE_SUMMARY") as? String
-        uivMSITVCIndicator.backgroundColor = DBColorSet.mySkoolColor
+        uivMSITVCIndicator.backgroundColor = DBColorSet.dashboardKBTertiaryColor
     }
     
     func setLoadingState(isLoading: Bool)
@@ -51,7 +51,7 @@ class MySkoolIntegratedTVCell: UITableViewCell {
     
     func setLoadMoreState(isLoadingMore: Bool)
     {
-        self.backgroundColor = DBColorSet.mySkoolColor
+        self.backgroundColor = DBColorSet.dashboardKBTertiaryColor
         self.uilMSITVCLoadMoreStatus.textColor = UIColor.white
         
         if(isLoadingMore == true)

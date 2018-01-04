@@ -34,28 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         print("[AppDelegate] Detected OS: \(UIDevice.current.systemName) \n Detected OS Version: \(UIDevice.current.systemVersion)")
         
-        if #available(iOS 10.0, *) {
-            // For iOS 10 display notification (sent via APNS)
-            UNUserNotificationCenter.current().delegate = self
-            
-            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization(
-                options: authOptions,
-                completionHandler: {_, _ in })
-            
-            // For iOS 10 data message (sent via FCM)
-            Messaging.messaging().delegate = self
-            
-        } else {
-            let settings: UIUserNotificationSettings =
-                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-            application.registerUserNotificationSettings(settings)
-        }
-        
-        application.registerForRemoteNotifications()
-        
-        
+        self.registerForPushNotifications(application)
         FirebaseApp.configure()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.tokenRefreshNotification), name: NSNotification.Name.InstanceIDTokenRefresh, object: nil)
         
         GMSServices.provideAPIKey(googleMapsAPIKey)
         GMSPlacesClient.provideAPIKey(googleMapsAPIKey)
@@ -68,10 +50,69 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
     
+    func registerForPushNotifications(_ application: UIApplication) {
+        
+        if #available(iOS 10.0, *) {
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(options: authOptions, completionHandler: { (granted, error) in
+                guard error == nil else {
+                    print("Noti register error: \(error?.localizedDescription)")
+                    return
+                }
+                if granted {
+                    UIApplication.shared.registerForRemoteNotifications()
+                    print("Noti registered!")
+                } else {
+                    
+                    print("Failed to registered!")
+                }
+            })
+            
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            // For iOS 10 data message (sent via FCM)
+            Messaging.messaging().delegate = self
+            
+        } else {
+            let userNotificationTypes: UIUserNotificationType = [.alert, .badge, .sound]
+            let settings = UIUserNotificationSettings(types: userNotificationTypes, categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(settings)
+            UIApplication.shared.registerForRemoteNotifications()
+        }
+    }
+    
     func application(received remoteMessage: MessagingRemoteMessage) {
         
         print("[Firebase] Message received: \(remoteMessage)")
         
+    }
+    
+    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
+        if notificationSettings.types != UIUserNotificationType() {
+            application.registerForRemoteNotifications()
+        }
+        
+        print("App notification registered.")
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+        //MARK : - Firebase
+        let tokenChars = (deviceToken as NSData).bytes.bindMemory(to: CChar.self, capacity: deviceToken.count)
+        var tokenString = ""
+        
+        for i in 0..<deviceToken.count {
+            tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+        }
+        
+        //Tricky line
+        Messaging.messaging().apnsToken = deviceToken
+        print("Device Token:", tokenString)
+        
+    }
+
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        print("FCM Token: \(fcmToken)")
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
@@ -83,6 +124,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print(userInfo)
         
         completionHandler(UIBackgroundFetchResult.newData)
+    }
+    
+    @objc func tokenRefreshNotification(notification: NSNotification) {
+        //    NOTE: It can be nil here
+        if let token = InstanceID.instanceID().token() {
+            print("InstanceID token: \(token)")
+            
+        }
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {

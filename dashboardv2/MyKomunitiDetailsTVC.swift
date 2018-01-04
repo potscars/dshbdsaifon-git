@@ -46,7 +46,7 @@ class MyKomunitiDetailsTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if(imagesAvailable!.count != 0 || imagesAvailable != nil) { return 4 }
+        if(imagesAvailable!.count != 0) { return 4 }
         else {
             return 3
         }
@@ -137,13 +137,6 @@ class MyKomunitiDetailsTVC: UITableViewController {
         }
 
     }
-    
-    @objc func performDownloadImage(sender: UIButton) {
-        
-        //UIImageWriteToSavedPhotosAlbum(self.uiivMKDTVCImages.image!, self, #selector(saveImage(image:error:context:)), nil)
-        print("downloading")
-    }
-    
 
     /*
     // Override to support conditional editing of the table view.
