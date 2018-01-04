@@ -90,7 +90,6 @@
 		B76CA3A21E86A0D500DA2AF0 /* ic_imagebroken@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B76CA3A01E86A0D500DA2AF0 /* ic_imagebroken@3x.png */; };
 		B76CA3A41E88C32100DA2AF0 /* AboutKBTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76CA3A31E88C32100DA2AF0 /* AboutKBTVC.swift */; };
 		B76CA3A61E88E2A300DA2AF0 /* AboutKBIntegratedTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76CA3A51E88E2A300DA2AF0 /* AboutKBIntegratedTVCell.swift */; };
-		B76CA3A81E8A485B00DA2AF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B76CA3A71E8A485B00DA2AF0 /* GoogleService-Info.plist */; };
 		B76CA3AB1E8B64AE00DA2AF0 /* MyKomunitiSendMsgImgPreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76CA3AA1E8B64AE00DA2AF0 /* MyKomunitiSendMsgImgPreviewVC.swift */; };
 		B76D256B1E56DBBA00280415 /* SettingsExtendedTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D256A1E56DBBA00280415 /* SettingsExtendedTVC.swift */; };
 		B76D256D1E56F43800280415 /* SettingsExtendedTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76D256C1E56F43800280415 /* SettingsExtendedTVCell.swift */; };
@@ -223,6 +222,7 @@
 		B7EF41A71E3706F000262A0B /* MyHealthBloodPressureTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EF41A61E3706F000262A0B /* MyHealthBloodPressureTVC.swift */; };
 		B7EF41A91E37072100262A0B /* MyHealthIntegratedTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EF41A81E37072100262A0B /* MyHealthIntegratedTVCell.swift */; };
 		B7EF41AB1E37074600262A0B /* MyHealthBodyWeightTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EF41AA1E37074600262A0B /* MyHealthBodyWeightTVC.swift */; };
+		B7F975E61FFDDBDF00115E76 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7F975E51FFDDBDE00115E76 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -320,7 +320,6 @@
 		B76CA3A01E86A0D500DA2AF0 /* ic_imagebroken@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_imagebroken@3x.png"; path = "[[Resources]]/ic_imagebroken@3x.png"; sourceTree = SOURCE_ROOT; };
 		B76CA3A31E88C32100DA2AF0 /* AboutKBTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutKBTVC.swift; sourceTree = "<group>"; };
 		B76CA3A51E88E2A300DA2AF0 /* AboutKBIntegratedTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutKBIntegratedTVCell.swift; sourceTree = "<group>"; };
-		B76CA3A71E8A485B00DA2AF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B76CA3A91E8A4D2500DA2AF0 /* dashboardKB.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = dashboardKB.entitlements; sourceTree = "<group>"; };
 		B76CA3AA1E8B64AE00DA2AF0 /* MyKomunitiSendMsgImgPreviewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyKomunitiSendMsgImgPreviewVC.swift; sourceTree = "<group>"; };
 		B76D256A1E56DBBA00280415 /* SettingsExtendedTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsExtendedTVC.swift; sourceTree = "<group>"; };
@@ -450,6 +449,7 @@
 		B7EF41A61E3706F000262A0B /* MyHealthBloodPressureTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHealthBloodPressureTVC.swift; sourceTree = "<group>"; };
 		B7EF41A81E37072100262A0B /* MyHealthIntegratedTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHealthIntegratedTVCell.swift; sourceTree = "<group>"; };
 		B7EF41AA1E37074600262A0B /* MyHealthBodyWeightTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHealthBodyWeightTVC.swift; sourceTree = "<group>"; };
+		B7F975E51FFDDBDE00115E76 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D73F1A16D14A395B71132997 /* Pods-dashboardKB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dashboardKB.release.xcconfig"; path = "Pods/Target Support Files/Pods-dashboardKB/Pods-dashboardKB.release.xcconfig"; sourceTree = "<group>"; };
 		DAB8DD4C2CDFE54A7E9DAD25 /* Pods-dashboardv2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dashboardv2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dashboardv2/Pods-dashboardv2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -787,7 +787,7 @@
 				B7A3C6FA1DE82F5600CB7864 /* Main.storyboard */,
 				B7A3C6FD1DE82F5600CB7864 /* Assets.xcassets */,
 				B7A3C6FF1DE82F5600CB7864 /* LaunchScreen.storyboard */,
-				B76CA3A71E8A485B00DA2AF0 /* GoogleService-Info.plist */,
+				B7F975E51FFDDBDE00115E76 /* GoogleService-Info.plist */,
 				B7A3C7021DE82F5600CB7864 /* Info.plist */,
 			);
 			path = dashboardv2;
@@ -1097,6 +1097,7 @@
 				B77B75BA1E986C6800A1F079 /* ic_saifon_logo_trans@2x.png in Resources */,
 				B7DC39FA1E139F3B00951852 /* ic_myebuku@3x.png in Resources */,
 				B7DC3A121E14E3BD00951852 /* ic_bannerdbi.png in Resources */,
+				B7F975E61FFDDBDF00115E76 /* GoogleService-Info.plist in Resources */,
 				B792EE1F1FF3519A00FA461C /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				B74000271E9CD15800E1B872 /* ic_myplace_filter@3x.png in Resources */,
 				B7CBEF701E9F6C6F00BE4454 /* ic_myplace_edit_content@2x.png in Resources */,
@@ -1152,7 +1153,6 @@
 				B792EE211FF3519F00FA461C /* RobotoCondensed-Light.ttf in Resources */,
 				B7DC39F81E139F3B00951852 /* ic_myebuku.png in Resources */,
 				B7DC3A011E139F3B00951852 /* ic_myshop.png in Resources */,
-				B76CA3A81E8A485B00DA2AF0 /* GoogleService-Info.plist in Resources */,
 				B74000221E9CD15800E1B872 /* ic_myplace_add@1x.png in Resources */,
 				B779CA191E6D5DC800843734 /* ic_saifon_compass.png in Resources */,
 				B7A3C6FC1DE82F5600CB7864 /* Main.storyboard in Resources */,

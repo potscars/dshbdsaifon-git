@@ -8,21 +8,24 @@ target 'dashboardKB' do
   # Pods for dashboardv2
 
 #pod 'SVProgressHUD'
-pod "youtube-ios-player-helper"
+pod 'youtube-ios-player-helper'
 #pod "PlainPing"
-pod "Cosmos", "~> 8.0"
-pod "ImageSlideshow"
-pod "ImageSlideshow/Kingfisher"
-pod "FacebookCore"
-pod "FacebookLogin"
-pod "FacebookShare"
-pod "Compass"
-pod "BSImagePicker"
-pod "PKHUD"
-pod "Firebase/Core"
-pod "Firebase/Messaging"
-pod "GoogleMaps"
-pod "GooglePlaces"
-pod "DKImagePickerController"
+pod 'Cosmos', '~> 8.0'
+pod 'ImageSlideshow'
+pod 'ImageSlideshow/Kingfisher'
+pod 'FacebookCore'
+pod 'FacebookLogin'
+pod 'FacebookShare'
+pod 'Compass'
+pod 'BSImagePicker'
+pod 'PKHUD'
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'
+pod 'GoogleMaps'
+pod 'GooglePlaces'
+pod 'DKImagePickerController'
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'
+
 
 end
