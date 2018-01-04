@@ -167,7 +167,7 @@ class MyShopIntegratedTVCell: UITableViewCell {
         
     }
     
-    func didTap() {
+    @objc func didTap() {
         issMSITVCDetailsPicture.presentFullScreenController(from: listingViewController!)
     }
     
@@ -205,7 +205,7 @@ class MyShopIntegratedTVCell: UITableViewCell {
         
         do {
             let attributedString = try NSAttributedString (data: descString.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
-                                       options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
+                                                           options: [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html],
                                        documentAttributes: nil)
             uilMSITVCDetailsProdDesc.attributedText = attributedString
         }

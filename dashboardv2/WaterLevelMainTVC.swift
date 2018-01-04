@@ -44,7 +44,7 @@ class WaterLevelMainTVC: UITableViewController {
         
     }
 
-    func populateData(data: NSNotification)
+    @objc func populateData(data: NSNotification)
     {
         
         let unWrapObject = data.value(forKey: "object") as! NSArray

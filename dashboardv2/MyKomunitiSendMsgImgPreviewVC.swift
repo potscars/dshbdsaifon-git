@@ -50,13 +50,13 @@ class MyKomunitiSendMsgImgPreviewVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func processingItem(sender: UIButton) {
+    @objc func processingItem(sender: UIButton) {
         
         let alertView: UIAlertController = UIAlertController.init(title: "Buang", message: "Anda pasti ingin membuang gambar ini?", preferredStyle: UIAlertControllerStyle.alert)
         
         let alertNoAction: UIAlertAction = UIAlertAction.init(title: "Tidak", style: UIAlertActionStyle.default, handler: { (action) in
             
-            alertView.dismiss(animated: true, completion: { (Void) in })
+            alertView.dismiss(animated: true, completion: { () -> Void in })
             
         })
         
@@ -68,7 +68,7 @@ class MyKomunitiSendMsgImgPreviewVC: UIViewController {
             
             _ = self.navigationController?.popViewController(animated: true)
             
-            alertView.dismiss(animated: true, completion: { (Void) in })
+            alertView.dismiss(animated: true, completion: { () -> Void in })
             
         })
         

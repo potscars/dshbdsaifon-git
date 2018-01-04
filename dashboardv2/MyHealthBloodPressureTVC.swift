@@ -66,7 +66,7 @@ class MyHealthBloodPressureTVC: UITableViewController {
         self.tableView.reloadData()
     }
     
-    func setRefresh(sender: UIBarButtonItem) {
+    @objc func setRefresh(sender: UIBarButtonItem) {
         
         if(DBWebServices.checkConnectionToDashboard(viewController: self) == true) {
             
@@ -87,7 +87,7 @@ class MyHealthBloodPressureTVC: UITableViewController {
         
     }
 
-    func populateData(data: NSDictionary) {
+    @objc func populateData(data: NSDictionary) {
         
         self.reloadPresets(inLoadingState: true)
         

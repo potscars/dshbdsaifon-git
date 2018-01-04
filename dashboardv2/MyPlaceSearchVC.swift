@@ -52,7 +52,7 @@ class MyPlaceSearchVC: UIViewController {
         self.navigationItem.rightBarButtonItem = homeButton
     }
     
-    func dismissMyPlace() {
+    @objc func dismissMyPlace() {
         
         dismiss(animated: true, completion: nil)
     }
@@ -86,7 +86,7 @@ class MyPlaceSearchVC: UIViewController {
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.barTintColor = DBColorSet.myPlacePrimaryColor
         navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         title = "Search"
     }
 }

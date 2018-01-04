@@ -38,7 +38,7 @@ class ProfileTVC: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func finishView(sender: UIEvent) {
+    @objc func finishView(sender: UIEvent) {
         
         self.dismiss(animated: true, completion: nil)
         

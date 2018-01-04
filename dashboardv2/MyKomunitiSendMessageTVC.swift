@@ -17,6 +17,7 @@ class MyKomunitiSendMessageTVC: UITableViewController, UITextViewDelegate {
     var imagePickCell: MyKomunitiSendMessageTVCell? = nil
     
     var imageGrabbed: NSArray = []
+    var imageGrabbedToSend: [UIImage] = []
     
     var contentText: String = ""
     
@@ -72,22 +73,33 @@ class MyKomunitiSendMessageTVC: UITableViewController, UITextViewDelegate {
         }
     }
     
-    func processingItem(sender: UIButton) {
-        
-        print("[MyKomunitiSendMessageTVC] Sending message of \(contentText) with pictures \(imageGrabbed)")
+    @objc func processingItem(sender: UIButton) {
         
         msgTextView.resignFirstResponder()
         
         HUD.show(HUDContentType.progress)
         
-        DBWebServices.sentAnnouncementMyKomuniti(registeredNotification: registeredSendMsgNoti , images: imageGrabbed, content: contentText)
+        //deprecated method
+        //DBWebServices.sentAnnouncementMyKomuniti(registeredNotification: registeredSendMsgNoti , images: imageGrabbed, content: contentText)
         
-        //self.navigationController?.popViewController(animated: true)
+        for i in imageGrabbed {
+            imageGrabbedToSend.append(i as! UIImage)
+        }
+        
+        let np: NetworkProcessor = NetworkProcessor.init(DBSettings.myKomunitiSendMsgURL)
+        np.uploadDataMultipart(["token":UserDefaults.standard.object(forKey: "SuccessLoggerDashboardToken") as! String,
+                                "content":contentText],
+                               images: imageGrabbedToSend,
+                               imagesPathKey: "attachments",
+                               completion: { result, response in
+                                
+                                self.sendResult(data: result! as NSDictionary)
+                                
+        })
+        
     }
     
-    func populatePhotos(data: NSDictionary) {
-        
-        print("[MyKomunitiSendMessageTVC] image returned is \(data)")
+    @objc func populatePhotos(data: NSDictionary) {
         
         let unwrappedObject: NSArray = data.value(forKey: "object") as! NSArray
         
@@ -103,17 +115,11 @@ class MyKomunitiSendMessageTVC: UITableViewController, UITextViewDelegate {
         }
     }
     
-    func sendResult(data: NSDictionary) {
+    @objc func sendResult(data: NSDictionary) {
         
-        print("[MyKomunitiSendMessageTVC] result from sending annoucement is \(data)")
-        
-        let unwrappedObject: NSDictionary = data.value(forKey: "object") as! NSDictionary
-        
-        if(unwrappedObject.value(forKey: "status") as! Int == 0 ) {
+        if(data.value(forKey: "status") as! Int == 0 ) {
             
             DispatchQueue.main.async {
-                
-                //ZUIs.showOKDialogBox(viewController: self, dialogTitle: "Gagal dihantar", dialogMessage: "Terdapat masalah teknikal. Sila cuba sebentar lagi.", afterDialogDismissed: nil)
                 
                 HUD.flash(HUDContentType.label("Sila cuba sebentar lagi."), delay: 2.0)
             }
@@ -121,8 +127,6 @@ class MyKomunitiSendMessageTVC: UITableViewController, UITextViewDelegate {
         else {
             
             DispatchQueue.main.async {
-                
-                //ZUIs.showOKDialogBox(viewController: self, dialogTitle: "Diterima", dialogMessage: "Pesanan telah dihantar.", afterDialogDismissed: "BACK_TO_NOT_ROOT_VIEWCONTROLLER")
                 
                 HUD.flash(HUDContentType.success, delay: 2.0) { _ in self.navigationController!.popViewController(animated: true) }
                 

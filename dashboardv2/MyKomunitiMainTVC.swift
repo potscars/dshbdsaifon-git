@@ -47,6 +47,8 @@ class MyKomunitiMainTVC: UITableViewController {
         }
         
         ZUISetup.setupTableViewWithTabView(tableView: self)
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 70.0
     
         self.loadData()
     }
@@ -70,7 +72,7 @@ class MyKomunitiMainTVC: UITableViewController {
         }
     }
     
-    func refreshed(_ sender: UIRefreshControl) {
+    @objc func refreshed(_ sender: UIRefreshControl) {
         
         self.isRefreshing = true
         self.loadData()
@@ -91,7 +93,7 @@ class MyKomunitiMainTVC: UITableViewController {
         }
     }
     
-    func errorNotification(errorMessage: String) {
+    @objc func errorNotification(errorMessage: String) {
         
         print("Error Detected!")
     }
@@ -105,7 +107,7 @@ class MyKomunitiMainTVC: UITableViewController {
         self.detailsToSend = [:]
     }
     
-    func populateData(data: NSDictionary)
+    @objc func populateData(data: NSDictionary)
     {
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
@@ -117,36 +119,40 @@ class MyKomunitiMainTVC: UITableViewController {
             
         else { self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none }
         
-        let extractNotificationWrapper: NSDictionary = data.value(forKey: "object") as! NSDictionary
-        
-        print(extractNotificationWrapper)
-        
-        let pagingMaxFromAPI: Int = extractNotificationWrapper.value(forKey: "last_page") as! Int
-        let getData: NSArray = extractNotificationWrapper.value(forKey: "data") as! NSArray
-        
-        for i in 0...getData.count - 1 {
+        if data.value(forKey: "object") is NSDictionary {
+            let extractNotificationWrapper: NSDictionary = data.value(forKey: "object") as! NSDictionary
+            let pagingMaxFromAPI: Int = extractNotificationWrapper.value(forKey: "last_page") as! Int
+            let getData: NSArray = extractNotificationWrapper.value(forKey: "data") as! NSArray
             
-            let extractedData: NSDictionary = getData[i] as! NSDictionary
-            let getUserData: NSDictionary = extractedData.value(forKey: "user") as! NSDictionary
+            for i in 0...getData.count - 1 {
+                
+                let extractedData: NSDictionary = getData[i] as! NSDictionary
+                let getUserData: NSDictionary = extractedData.value(forKey: "user") as! NSDictionary
+                
+                dataArrays.add(["MESSAGE_LEVEL":"AWAM",
+                                "MESSAGE_SENDER":getUserData.value(forKey: "full_name") as! String,
+                                "MESSAGE_DATE":extractedData.value(forKey: "updated_at") as! String,
+                                "MESSAGE_TITLE":extractedData.value(forKey: "title") as! String,
+                                "MESSAGE_SUMMARY":extractedData.value(forKey: "excerpt") as! String,
+                                "MESSAGE_DESC":extractedData.value(forKey: "content") as! String,
+                                "MESSAGE_IMAGES":extractedData.value(forKey: "images") as? NSArray ?? []
+                    ])
+            }
+            print("[MyKomunitiMainTVC] \(dataArrays.count) per \(dataLimiter), maximum to \(pagingMaxFromAPI)")
             
-            dataArrays.add(["MESSAGE_LEVEL":"AWAM",
-                            "MESSAGE_SENDER":getUserData.value(forKey: "full_name") as! String,
-                            "MESSAGE_DATE":getUserData.value(forKey: "updated_at") as! String,
-                            "MESSAGE_TITLE":extractedData.value(forKey: "title") as! String,
-                            "MESSAGE_SUMMARY":extractedData.value(forKey: "excerpt") as! String,
-                            "MESSAGE_DESC":extractedData.value(forKey: "content") as! String,
-                            "MESSAGE_IMAGES":extractedData.value(forKey: "images") as? NSArray ?? []
-                ])
-        }
-        
-        print("[MyKomunitiMainTVC] \(dataArrays.count) per \(dataLimiter), maximum to \(pagingMaxFromAPI)")
-        
-        if(paging == pagingMaxFromAPI) {
+            if(paging == pagingMaxFromAPI) {
+                
+                self.canReloadMore = false
+            } else {
+                
+                self.canReloadMore = true
+            }
             
-            self.canReloadMore = false
         } else {
             
-            self.canReloadMore = true
+            let extractNotificationWrapper: String = (data.value(forKey: "object") as? String)!
+            
+            print("[MyKomunitiMainTVC] Unknown string return: \(extractNotificationWrapper)")
         }
         
         if (refreshControl?.isRefreshing)! {
@@ -178,8 +184,6 @@ class MyKomunitiMainTVC: UITableViewController {
         if(self.canReloadMore == true) { dataCount += 1 }
         
         if(self.isFirstLoad == true) { dataCount = 1 }
-        
-        print("[MyKomunitiMainTVC] Data count is \(dataCount)")
         
         return dataCount
     }
@@ -218,13 +222,34 @@ class MyKomunitiMainTVC: UITableViewController {
                 return reloadCell!
             }
             else {
-                let cell: MyKomunitiMainTVCell = tableView.dequeueReusableCell(withIdentifier: "MyKomunitiMainCellID") as! MyKomunitiMainTVCell
-        
-                cell.selectionStyle = UITableViewCellSelectionStyle.default
-                tableView.allowsSelection = true
-                cell.updateCell(data: dataArrays.object(at: indexPath.row) as! NSDictionary)
-            
-                return cell
+                
+                let dataInDict: NSDictionary = dataArrays.object(at: indexPath.row) as! NSDictionary
+                let imageArray: NSArray = dataInDict.value(forKey: "MESSAGE_IMAGES") as! NSArray
+                
+                if(imageArray.count != 0) {
+                    print("imagedata avail")
+                    ////MyKomunitiMainPicCellID
+                    let cell: MyKomunitiMainTVCell = tableView.dequeueReusableCell(withIdentifier: "MyKomunitiMainPicCellID") as! MyKomunitiMainTVCell
+                    
+                    cell.selectionStyle = UITableViewCellSelectionStyle.default
+                    tableView.allowsSelection = true
+                    cell.updateCell(data: dataInDict)
+                    cell.includePic(data: dataInDict)
+                    
+                    
+                    return cell
+                }
+                else {
+                    let cell: MyKomunitiMainTVCell = tableView.dequeueReusableCell(withIdentifier: "MyKomunitiMainCellID") as! MyKomunitiMainTVCell
+                    
+                    cell.selectionStyle = UITableViewCellSelectionStyle.default
+                    tableView.allowsSelection = true
+                    cell.updateCell(data: dataInDict)
+                    
+                    return cell
+                }
+                
+                
             }
         }
     }
@@ -244,6 +269,7 @@ class MyKomunitiMainTVC: UITableViewController {
                 
                 DBWebServices.getMyKomunitiPublicFeed(self, page: self.paging, registeredNotification: self.registeredNotification)
             }
+            
         }
         else if(DBWebServices.checkConnectionToDashboard(viewController: self) == true) {
             
@@ -252,9 +278,9 @@ class MyKomunitiMainTVC: UITableViewController {
             
         }
     }
-
+    /*
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
+        //300
         if(self.canReloadMore == true && indexPath.row == dataArrays.count)
         {
             return 70.0
@@ -265,7 +291,7 @@ class MyKomunitiMainTVC: UITableViewController {
         }
         
     }
-
+ */
     
     // MARK: - Navigation
 

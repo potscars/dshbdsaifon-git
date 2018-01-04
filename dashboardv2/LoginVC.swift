@@ -65,7 +65,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func returnToLogin(button: UIButton) {
+    @objc func returnToLogin(button: UIButton) {
         
         _ = self.navigationController?.popViewController(animated: true)
         

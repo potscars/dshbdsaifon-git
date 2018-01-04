@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PlainPing
 
 class DBWebServices: NSObject {
     
@@ -29,7 +28,7 @@ class DBWebServices: NSObject {
         else
         {
             print("[Libraries] Has internet connection.")
-            
+            /*
             PlainPing.ping("http://dashboard.pi1m.my", withTimeout: 1.0, completionBlock: {(timeElapsed:Double?, error:Error?) in
             
                 if let latency = timeElapsed {
@@ -42,8 +41,8 @@ class DBWebServices: NSObject {
                     print("[DBWebServices] Ping error: \(error.localizedDescription)")
                     
                 }
-            
             })
+             */
             
             return true
         }
@@ -263,11 +262,12 @@ class DBWebServices: NSObject {
         
         let getAnnouncementURL = NSURL.init(string: DBSettings.myKomunitiSendMsgURL)!
         //let getAnnouncementParams = String(format: "token=%@&content=%@&attachments[]=%@",dashToken,content,images)
+        //let getAnnouncementParams = "token=\(dashToken)&content=\(content)&attachments[]=\(images)"
         let getAnnouncementParams = "token=\(dashToken)&content=\(content)&attachments[]=\(images)"
         
         print("[DBWebServices] URL set: ",getAnnouncementParams )
         
-        _ = ZNetwork.performPostData(url: getAnnouncementURL, parameters: getAnnouncementParams, contentType: nil, includeContentLength: true, notificationName: registeredNotification)
+        _ = ZNetwork.performPostData(url: getAnnouncementURL, parameters: getAnnouncementParams, contentType: nil, includeContentLength: false, notificationName: registeredNotification)
     }
     
     static func getAgenciesList(registeredNotification: String) {

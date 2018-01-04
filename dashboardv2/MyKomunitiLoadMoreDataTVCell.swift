@@ -16,7 +16,7 @@ class MyKomunitiLoadMoreDataTVCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        self.backgroundColor = DBColorSet.myKomunitiColor
+        self.backgroundColor = DBColorSet.dashboardKBTertiaryColor
         self.uilMKLMDTVCText.textColor = UIColor.white
     }
     

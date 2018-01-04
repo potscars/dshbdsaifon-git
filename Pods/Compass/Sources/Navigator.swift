@@ -1,25 +1,32 @@
 import Foundation
 
+/// The Navigator is used to parse Location from url, and navigate
 public struct Navigator {
-
-  typealias Result = (
-    route: String,
-    arguments: [String: String],
-    concreteMatchCount: Int,
-    wildcardMatchCount: Int)
-
   fileprivate static var internalScheme = ""
+
+  /// The delimiter used to split parts within url, default to :
   public static var delimiter: String = ":"
 
+  /// The scheme used by Compass, usually it is your application scheme
   public static var scheme: String {
     set { Navigator.internalScheme = newValue }
     get { return "\(Navigator.internalScheme)://" }
   }
 
+  /// A list of route strings
   public static var routes = [String]()
 
+  /// Handle the location request
+  public static var handle: ((Location) -> Void)?
+
+  /// Parse Location from url
+  ///
+  /// - Parameters:
+  ///   - url: The url to be parsed
+  ///   - payload: The optional payload if you want to send in app objects
+  /// - Returns: The Location that can be used
   public static func parse(url: URL, payload: Any? = nil) -> Location? {
-    let path = url.absoluteString.substring(from: scheme.endIndex)
+    let path = String(url.absoluteString.suffix(from: scheme.endIndex))
 
     guard !(path.contains("?") || path.contains("#")) else {
       return parseComponents(url: url, payload: payload)
@@ -42,7 +49,14 @@ public struct Navigator {
     return nil
   }
 
-  static func parseComponents(url: URL, payload: Any? = nil) -> Location? {
+
+  /// Helper function to parse url if it has components and queryItems
+  ///
+  /// - Parameters:
+  ///   - url: The url to be parsed
+  ///   - payload: The optional payload if you want to send in app objects
+  /// - Returns: The Location that can be used
+  fileprivate static func parseComponents(url: URL, payload: Any? = nil) -> Location? {
     guard let route = url.host else { return nil }
 
     let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
@@ -59,7 +73,20 @@ public struct Navigator {
     return Location(path: route, arguments: arguments, payload: payload)
   }
 
-  static func findMatch(routeString: String, pathString: String) -> Result? {
+  /// The Result used in the findMatch function
+  fileprivate typealias Result = (
+    route: String,
+    arguments: [String: String],
+    concreteMatchCount: Int,
+    wildcardMatchCount: Int)
+
+  /// Find the best match registed route for a certain route string
+  ///
+  /// - Parameters:
+  ///   - routeString: The registered route string
+  ///   - pathString: The path extracted from the requested url
+  /// - Returns: The Result on how this pathString matches
+  fileprivate static func findMatch(routeString: String, pathString: String) -> Result? {
     let routes = routeString.split(delimiter)
     let paths = pathString.split(delimiter)
 
@@ -93,14 +120,44 @@ public struct Navigator {
   }
 }
 
-extension Navigator {
+public extension Navigator {
 
-  public static func compassURL(urn: String, scheme: String = Navigator.scheme) -> URL? {
-    return URL(string: "\(scheme)\(urn.compass_encoded())")
+  /// Navigate using urn
+  ///
+  /// - Parameters:
+  ///   - urn: The urn
+  ///   - payload: Optional payload
+  /// - Throws: RouteError if the routing fails
+  public static func navigate(urn: String, payload: Any? = nil) throws {
+    let encodedUrn = PercentEncoder.encode(string: urn, allowedCharacters: delimiter)
+    guard let url =  URL(string: "\(scheme)\(encodedUrn)") else {
+      throw RouteError.notFound
+    }
+
+    try navigate(url: url, payload: payload)
   }
 
-  public static func navigate(to urn: String, scheme: String = Navigator.scheme) {
-    guard let url = compassURL(urn: urn, scheme: scheme) else { return }
-    open(url: url)
+  /// Navigate using url
+  ///
+  /// - Parameters:
+  ///   - urn: The url
+  ///   - payload: Optional payload
+  /// - Throws: RouteError if the routing fails
+  public static func navigate(url: URL, payload: Any? = nil) throws {
+    guard let location = parse(url: url, payload: payload) else {
+      throw RouteError.notFound
+    }
+
+    try navigate(location: location)
+  }
+
+  /// Navigate using location
+  ///
+  /// - Parameters:
+  ///   - urn: The urn
+  ///   - payload: Optional payload
+  /// - Throws: RouteError if the routing fails
+  public static func navigate(location: Location) throws {
+    handle?(location)
   }
 }

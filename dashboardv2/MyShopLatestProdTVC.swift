@@ -92,7 +92,7 @@ class MyShopLatestProdTVC: UITableViewController {
         self.tableView.reloadData()
     }
     
-    func setRefresh(sender: UIBarButtonItem) {
+    @objc func setRefresh(sender: UIBarButtonItem) {
         
         if(DBWebServices.checkConnectionToDashboard(viewController: self) == true) {
             

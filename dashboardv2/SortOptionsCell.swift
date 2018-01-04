@@ -31,7 +31,7 @@ class SortOptionsCell: UITableViewCell {
         nearbySwitch.addTarget(self, action: #selector(nearbySwitchChange(_:)), for: .touchUpInside)
     }
     
-    func recentSwitchChange(_ sender: UISwitch) {
+    @objc func recentSwitchChange(_ sender: UISwitch) {
         
         if recentSwitch.isOn {
             
@@ -40,7 +40,7 @@ class SortOptionsCell: UITableViewCell {
         }
     }
     
-    func favouriteSwitchChange(_ sender: UISwitch) {
+    @objc func favouriteSwitchChange(_ sender: UISwitch) {
         
         if favouriteSwitch.isOn {
             
@@ -49,7 +49,7 @@ class SortOptionsCell: UITableViewCell {
         }
     }
     
-    func nearbySwitchChange(_ sender: UISwitch) {
+    @objc func nearbySwitchChange(_ sender: UISwitch) {
         
         if nearbySwitch.isOn {
             
