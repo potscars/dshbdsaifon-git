@@ -91,7 +91,6 @@ class MySkoolMainTVC: UITableViewController {
     
     @objc func populateData(data: NSDictionary) {
     
-        
         if isFirstLoad || isRefreshing {
             
             dataArrays.removeAllObjects()
