@@ -24,8 +24,6 @@ pod 'Firebase/Messaging'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
 pod 'DKImagePickerController'
-pod 'Firebase/Core'
-pod 'Firebase/Messaging'
-
+pod 'Charts'
 
 end

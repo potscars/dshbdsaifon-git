@@ -9,6 +9,9 @@ PODS:
   - BSImagePicker (2.7.1):
     - BSGridCollectionViewLayout (~> 1.2.0)
     - UIImageViewModeScaleAspect (= 1.5)
+  - Charts (3.0.5):
+    - Charts/Core (= 3.0.5)
+  - Charts/Core (3.0.5)
   - Compass (6.0.0)
   - Cosmos (8.0.2)
   - DKImagePickerController (3.8.1):
@@ -29,24 +32,24 @@ PODS:
     - FacebookCore (~> 0.3)
     - FBSDKCoreKit (~> 4.27)
     - FBSDKShareKit (~> 4.27)
-  - FBSDKCoreKit (4.29.0):
+  - FBSDKCoreKit (4.30.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.29.0):
+  - FBSDKLoginKit (4.30.0):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.29.0):
-    - FBSDKCoreKit
-  - Firebase/Core (4.8.0):
-    - FirebaseAnalytics (= 4.0.5)
-    - FirebaseCore (= 4.0.13)
-  - Firebase/Messaging (4.8.0):
+  - FBSDKShareKit (4.30.0):
+    - FBSDKCoreKit (~> 4.30.0)
+  - Firebase/Core (4.8.2):
+    - FirebaseAnalytics (= 4.0.9)
+    - FirebaseCore (= 4.0.14)
+  - Firebase/Messaging (4.8.2):
     - Firebase/Core
     - FirebaseMessaging (= 2.0.8)
-  - FirebaseAnalytics (4.0.5):
+  - FirebaseAnalytics (4.0.9):
     - FirebaseCore (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
     - nanopb (~> 0.3)
-  - FirebaseCore (4.0.13):
+  - FirebaseCore (4.0.14):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseInstanceID (2.0.8):
     - FirebaseCore (~> 4.0)
@@ -68,10 +71,10 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.3)
   - GoogleToolboxForMac/NSData+zlib (2.1.3):
     - GoogleToolboxForMac/Defines (= 2.1.3)
-  - ImageSlideshow (1.4.1):
-    - ImageSlideshow/Core (= 1.4.1)
-  - ImageSlideshow/Core (1.4.1)
-  - ImageSlideshow/Kingfisher (1.4.1):
+  - ImageSlideshow (1.5.1):
+    - ImageSlideshow/Core (= 1.5.1)
+  - ImageSlideshow/Core (1.5.1)
+  - ImageSlideshow/Kingfisher (1.5.1):
     - ImageSlideshow/Core
     - Kingfisher (> 3.0)
   - Kingfisher (4.6.1)
@@ -87,6 +90,7 @@ PODS:
 
 DEPENDENCIES:
   - BSImagePicker
+  - Charts
   - Compass
   - Cosmos (~> 8.0)
   - DKImagePickerController
@@ -106,24 +110,25 @@ SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   BSGridCollectionViewLayout: 8f12c8e1e08c47057f5a39a6828f4395f043d78f
   BSImagePicker: eb12948a6e71b9855c2c37723dfd989b9b4288bd
+  Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
   Compass: ff30e2056c549ea5cb5b8a307d28ef628e4209ff
   Cosmos: 007c0b8e33a85e5363911bdd933571bbe221f7ef
   DKImagePickerController: 51ad6ee2ba05414bb741db54a72cd7f4fb178e34
   FacebookCore: 3ffa190a3f1f96cec0e44d3fc221bc322c595ffa
   FacebookLogin: 0af839ea858faef99550d16596b87b4a8e8906e6
   FacebookShare: 0469964297ebd75f052be2c5083389a4208e82b7
-  FBSDKCoreKit: 6f139173dc63a1deaff4430a55f2fe5bb222d2af
-  FBSDKLoginKit: 56a057ca6822535ea0faa25f57a7c41edb697fd4
-  FBSDKShareKit: 18a2cd118aef11dd657fe7e8b64bae5c719088b2
-  Firebase: 710decbbc6d9d48530e9a5dba3209740c3532e05
-  FirebaseAnalytics: 5b02a63ead2c3f0259cfc7f15e053e440587ecf8
-  FirebaseCore: 3c02ec652db3d03fdc8bc6d9154af3e20d64b6f5
+  FBSDKCoreKit: 7c4bba2877781a131ab5d54c0a78c405d4307b62
+  FBSDKLoginKit: fe7a7e82373dc5daad92e1623219e86224ab1fb1
+  FBSDKShareKit: a9427574b51bde4f437262c3f118c4ccfddeef6c
+  Firebase: 7d3b8cd837ad9fcd391657734c0d56dab8e9a5a3
+  FirebaseAnalytics: 388b630c15713f5dbf364071f5f3d6077fb52f4e
+  FirebaseCore: 2e0b98fb2d64ca8140136beff15772bdd14d2dd7
   FirebaseInstanceID: 81df5805a08001e69138664bdd02c6719a9ac80f
   FirebaseMessaging: dfdcd307c2382290a1e297a81d0f18370f5b1bcd
   GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
   GooglePlaces: dd70d9d71ea1c7944846afe67de3712c99b30a77
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
-  ImageSlideshow: 1bb0e610e28a71e8936d57265d882f61714a470b
+  ImageSlideshow: ae3de479b8c70dc751142d21573f5a28dbb97d4d
   Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
@@ -131,6 +136,6 @@ SPEC CHECKSUMS:
   UIImageViewModeScaleAspect: 11a790a0b9d248a13dc63e3a78991f1463b6d84e
   youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: c6267742cc7f8a0cb5aa54e5deb9b234548f6117
+PODFILE CHECKSUM: 1c07063fb3b6c1b2a65d6adfbf96b22c34db9be1
 
 COCOAPODS: 1.3.1
