@@ -89,7 +89,7 @@ class DBWebServices: NSObject {
     static func getLoginFBData(data: NSDictionary, registeredNotification: String) {
         
         let getLoginURL = NSURL.init(string: DBSettings.loginFBURL)
-        let getLoginParams = String(format: "username=%@&password=%@&regid=%@&imei=%@&os=%@&os_version=%@&type_login=%@&site_id=%@&fb_id=%@&fb_token=%@", data.value(forKey: "USERNAME") as! String,data.value(forKey: "PASSWORD") as! String,data.value(forKey: "REGISTERED_ID") as! String,data.value(forKey: "IMEI") as! String,data.value(forKey: "OS") as! String,data.value(forKey: "OS_VERSION") as! String,data.value(forKey: "TYPE_LOGIN") as! String,data.value(forKey: "SITE_ID") as! String,data.value(forKey: "FB_ID") as! String,data.value(forKey: "FB_TOKEN") as! String)
+        let getLoginParams = String(format: "username=%@&password=%@&regid=%@&imei=%@&os=%@&os_version=%@&type_login=%@&site_id=%@&fb_id=%@&fb_token=%@", data.value(forKey: "USERNAME") as? String ?? "N/A",data.value(forKey: "PASSWORD") as? String ?? "N/A",data.value(forKey: "REGISTERED_ID") as? String ?? "N/A",data.value(forKey: "IMEI") as? String ?? "N/A",data.value(forKey: "OS") as? String ?? "N/A",data.value(forKey: "OS_VERSION") as? String ?? "N/A",data.value(forKey: "TYPE_LOGIN") as? String ?? "N/A",data.value(forKey: "SITE_ID") as? String ?? "N/A",data.value(forKey: "FB_ID") as? String ?? "N/A",data.value(forKey: "FB_TOKEN") as? String ?? "N/A")
         
         _ = ZNetwork.performPostData(url: getLoginURL!, parameters: getLoginParams, contentType: ZNetwork.ContentTypeApplicationXWWWFormUrlEncoded, includeContentLength: false, notificationName: registeredNotification)
     }
