@@ -41,6 +41,7 @@
 		9EE99EEE1EF1241F00499C6C /* SearchResultDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE99EED1EF1241F00499C6C /* SearchResultDetailsVC.swift */; };
 		9EE99EF01EF1254E00499C6C /* SearchResultDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE99EEF1EF1254E00499C6C /* SearchResultDetailsCell.swift */; };
 		9EEE8B752035550E003E3BD9 /* DetailsSensorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EEE8B742035550E003E3BD9 /* DetailsSensorCell.xib */; };
+		9EEFD454204660F200E13AAE /* PlaceHolderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEFD453204660F200E13AAE /* PlaceHolderCell.swift */; };
 		B72B91A71E42D53400F1BF99 /* ic_chat.png in Resources */ = {isa = PBXBuildFile; fileRef = B72B91A51E42D53400F1BF99 /* ic_chat.png */; };
 		B72B91A81E42D53400F1BF99 /* ic_view.png in Resources */ = {isa = PBXBuildFile; fileRef = B72B91A61E42D53400F1BF99 /* ic_view.png */; };
 		B72B91AB1E4311E700F1BF99 /* MyShopLatestProdTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72B91AA1E4311E700F1BF99 /* MyShopLatestProdTVC.swift */; };
@@ -289,6 +290,7 @@
 		9EE99EED1EF1241F00499C6C /* SearchResultDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultDetailsVC.swift; sourceTree = "<group>"; };
 		9EE99EEF1EF1254E00499C6C /* SearchResultDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultDetailsCell.swift; sourceTree = "<group>"; };
 		9EEE8B742035550E003E3BD9 /* DetailsSensorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsSensorCell.xib; sourceTree = "<group>"; };
+		9EEFD453204660F200E13AAE /* PlaceHolderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolderCell.swift; sourceTree = "<group>"; };
 		B72B91A51E42D53400F1BF99 /* ic_chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_chat.png; path = "[[Resources]]/ic_chat.png"; sourceTree = SOURCE_ROOT; };
 		B72B91A61E42D53400F1BF99 /* ic_view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_view.png; path = "[[Resources]]/ic_view.png"; sourceTree = SOURCE_ROOT; };
 		B72B91AA1E4311E700F1BF99 /* MyShopLatestProdTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyShopLatestProdTVC.swift; sourceTree = "<group>"; };
@@ -920,6 +922,7 @@
 				B73F551E1E66C40C00D03203 /* WaterLevelIntegratedTVCell.swift */,
 				B7A797A31E6810AB0086AAFE /* WaterLevelDetailsTVC.swift */,
 				9EB5B617202B0CC000CC6D0E /* RiverLevelGraphCell.swift */,
+				9EEFD453204660F200E13AAE /* PlaceHolderCell.swift */,
 			);
 			name = WaterLevel;
 			sourceTree = "<group>";
@@ -1396,6 +1399,7 @@
 				B73966291E1CA42300B270A1 /* MyKomunitiMainTVCell.swift in Sources */,
 				B7CBEF7B1EA7642300BE4454 /* MyPlaceSearchVC.swift in Sources */,
 				9ED280F91EE6A8CF008399CE /* PhotosHolderVC.swift in Sources */,
+				9EEFD454204660F200E13AAE /* PlaceHolderCell.swift in Sources */,
 				B73F551B1E66786500D03203 /* LoginRegisterProcessVC.swift in Sources */,
 				9E2081BE2034124D00943153 /* SaifonMainVC.swift in Sources */,
 				B73F551D1E66C3B700D03203 /* WaterLevelMainTVC.swift in Sources */,

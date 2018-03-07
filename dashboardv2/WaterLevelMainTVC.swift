@@ -31,6 +31,8 @@ class WaterLevelMainTVC: UITableViewController {
         ZUISetup.setupTableView(tableView: self)
         tableView.estimatedRowHeight = 140.0
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        tableView.register(PlaceHolderCell.self, forCellReuseIdentifier: "PlaceholderCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,10 +92,10 @@ class WaterLevelMainTVC: UITableViewController {
                                            "RIVER_REPORT_DATE":ZDateTime.dateFormatConverter(valueInString: riverCurrentReportDate, dateTimeFormatFrom: nil, dateTimeFormatTo: ZDateTime.DateInLong),
                                            "RIVER_CURR_LEVEL":"\(riverCurrentReportWaterLevel)m",
                                            "RIVER_LEVEL_DIFF":"(\(riverWaterLevelDifference) m)",
-                                           "RIVER_PREV_LEVEL":"\(riverPrevReportWaterLevel)m"]
-            if isSensorActive == "1" {
-                listOfRivers!.add(riverInfo)
-            }
+                                           "RIVER_PREV_LEVEL":"\(riverPrevReportWaterLevel)m",
+                "IS_ACTIVE": "\(isSensorActive)"]
+            
+            listOfRivers!.add(riverInfo)
             receivedListofRivers.add(readReceiveData)
         }
         
@@ -134,16 +136,27 @@ class WaterLevelMainTVC: UITableViewController {
         }
         else {
             
-            let cell: WaterLevelIntegratedTVCell = tableView.dequeueReusableCell(withIdentifier: "RiverDetailedCellID") as! WaterLevelIntegratedTVCell
+            
 
             // Configure the cell...
-        
-            cell.updateRiverLevelCell(data: listOfRivers?.object(at: indexPath.row) as! NSDictionary)
+            let tempData = listOfRivers?.object(at: indexPath.row) as! NSDictionary
             
-            tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
-            
-
-            return cell
+            if (tempData["IS_ACTIVE"] as! String ) == "1" {
+                let cell: WaterLevelIntegratedTVCell = tableView.dequeueReusableCell(withIdentifier: "RiverDetailedCellID") as! WaterLevelIntegratedTVCell
+                
+                cell.updateRiverLevelCell(data: listOfRivers?.object(at: indexPath.row) as!
+                    NSDictionary)
+                tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
+                
+                return cell
+            } else {
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "PlaceholderCell", for: indexPath) as! PlaceHolderCell
+                
+                cell.updateUI(withName: tempData["RIVER_NAME"] as! String)
+                
+                return cell
+            }
         }
     }
     
@@ -151,21 +164,38 @@ class WaterLevelMainTVC: UITableViewController {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let receivedIdArray: NSArray = receivedListofRivers.value(forKey: "location_id") as! NSArray
-        let getID: String = (receivedIdArray[indexPath.row] as! NSArray).object(at: 0) as! String
+        let tempData = listOfRivers?.object(at: indexPath.row) as! NSDictionary
         
-        receivedID = getID
+        if (tempData["IS_ACTIVE"] as! String ) == "1" {
         
-        print("[WaterLevelMainTVC] Received ID is \(receivedID), with details of river is \(listOfRivers?.object(at: indexPath.row) as! NSDictionary)")
-        
-        selectedRiverDetails = listOfRivers?.object(at: indexPath.row) as! NSDictionary
-        
-        self.performSegue(withIdentifier: "DB_GOTO_RIVER_DETAILS", sender: self)
+            let receivedIdArray: NSArray = receivedListofRivers.value(forKey: "location_id") as! NSArray
+            let getID: String = (receivedIdArray[indexPath.row] as! NSArray).object(at: 0) as! String
+            
+            receivedID = getID
+            
+            print("[WaterLevelMainTVC] Received ID is \(receivedID), with details of river is \(listOfRivers?.object(at: indexPath.row) as! NSDictionary)")
+            
+            selectedRiverDetails = listOfRivers?.object(at: indexPath.row) as! NSDictionary
+            
+            self.performSegue(withIdentifier: "DB_GOTO_RIVER_DETAILS", sender: self)
+        }
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if(listOfRivers!.count == 0) { return 100 } else { return UITableViewAutomaticDimension }
+        if(listOfRivers!.count == 0) {
+            return 100
+            
+        } else {
+            
+            let tempData = listOfRivers?.object(at: indexPath.row) as! NSDictionary
+            
+            if (tempData["IS_ACTIVE"] as! String ) == "1" {
+                return UITableViewAutomaticDimension
+            } else {
+                return 140.0
+            }
+        }
     }
     
     // MARK: - Navigation
@@ -173,10 +203,14 @@ class WaterLevelMainTVC: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        let descController: WaterLevelDetailsTVC = segue.destination as! WaterLevelDetailsTVC
+        guard let descController: WaterLevelDetailsTVC = segue.destination as? WaterLevelDetailsTVC else { return }
         
         descController.selectedRiverDetails.add(selectedRiverDetails)
         descController.selectedRiverDetails.add(receivedListofRivers)
         descController.selectedRiverDetails.add(receivedID)
     }
 }
+
+
+
+
