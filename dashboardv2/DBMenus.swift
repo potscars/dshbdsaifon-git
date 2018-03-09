@@ -22,6 +22,8 @@ class DBMenus: NSObject {
         
         dictionaryAdd = ["MenuString":DBStrings.DB_MENU_MYKOMUNITI_MS, "IconString":DBImages.DB_ICON_MYKOMUNITI, "ColorObject": DBColorSet.dashboardKBTertiaryColor, "MenuBgImage":DBImages.DB_MENU_BG_MYKOMUNITI]
         compiledArrays.add(dictionaryAdd)
+        dictionaryAdd = ["MenuString":DBStrings.DB_MENU_SAIFON_MS, "IconString":DBImages.DB_ICON_SAIFON, "ColorObject": DBColorSet.dashboardKBTertiaryColor, "MenuBgImage":DBImages.DB_MENU_BG_SAIFON]
+        compiledArrays.add(dictionaryAdd)
         dictionaryAdd = ["MenuString":DBStrings.DB_MENU_MYSOAL_MS, "IconString":DBImages.DB_ICON_MYSOAL, "ColorObject": DBColorSet.dashboardKBTertiaryColor, "MenuBgImage":DBImages.DB_MENU_BG_MYSOAL]
         compiledArrays.add(dictionaryAdd)
         dictionaryAdd = ["MenuString":DBStrings.DB_MENU_MYSKOOL_MS, "IconString":DBImages.DB_ICON_MYSKOOL, "ColorObject": DBColorSet.dashboardKBTertiaryColor, "MenuBgImage":DBImages.DB_MENU_BG_MYSKOOL]
