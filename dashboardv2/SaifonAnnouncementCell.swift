@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SaifonAnnouncementDelegate {
+    func didTappedCell()
+}
+
 class SaifonAnnouncementCell: UICollectionViewCell {
     
     lazy var announcementContentTableview: UITableView = {
@@ -19,10 +23,11 @@ class SaifonAnnouncementCell: UICollectionViewCell {
         tableView.delegate = self
         tableView.register(AnnouncementContentCell.self, forCellReuseIdentifier: SaifonIdentifier.AnnouncementContentCell)
         tableView.autoresizesSubviews = true
-        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         tableView.separatorStyle = .none
         return tableView
     }()
+    
+    var announcementDelegate: SaifonAnnouncementDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,11 +43,11 @@ class SaifonAnnouncementCell: UICollectionViewCell {
         
         addSubview(announcementContentTableview)
         
-        announcementContentTableview.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        announcementContentTableview.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        announcementContentTableview.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        announcementContentTableview.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        announcementContentTableview.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        announcementContentTableview.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        announcementContentTableview.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        announcementContentTableview.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
+        announcementContentTableview.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+        announcementContentTableview.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
     }
     
     override func layoutSubviews() {
@@ -65,8 +70,16 @@ extension SaifonAnnouncementCell: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SaifonIdentifier.AnnouncementContentCell, for: indexPath) as! AnnouncementContentCell
         cell.selectionStyle = .none
-        
+        cell.updateView()
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Selected!")
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        cell.isUserInteractionEnabled = true
+        
+        announcementDelegate?.didTappedCell()
     }
 }
 

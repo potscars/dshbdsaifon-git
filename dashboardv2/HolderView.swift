@@ -15,8 +15,6 @@ class HolderView: UIView {
         
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .white
-        autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        autoresizesSubviews = true
     }
     
     override func layoutSubviews() {
@@ -25,9 +23,10 @@ class HolderView: UIView {
         let shadowPath = UIBezierPath(rect: bounds)
         layer.masksToBounds = false
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
-        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize.zero
+        layer.shadowOpacity = 0.1
         layer.shadowPath = shadowPath.cgPath
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

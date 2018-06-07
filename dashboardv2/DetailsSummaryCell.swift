@@ -7,19 +7,11 @@
 //
 
 import UIKit
+import SVGKit
 
 class DetailsSummaryCell: UITableViewCell {
     
-    let holderView: UIView = {
-       let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.autoresizesSubviews = true
-        return view
-    }()
-    
-    let venueInfoTextview: UITextView = {
+    var venueInfoTextview: UITextView = {
         
         var tv = UITextView()
         tv.translatesAutoresizingMaskIntoConstraints = false
@@ -36,17 +28,17 @@ class DetailsSummaryCell: UITableViewCell {
         return tv
     }()
     
-    let cloudImageView: UIImageView = {
+    var cloudImageView: UIImageView = {
        
         var iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.contentMode = .scaleAspectFill
-        iv.image = #imageLiteral(resourceName: "default_avatar")
+        iv.contentMode = .scaleAspectFit
+        iv.image = #imageLiteral(resourceName: "ic_saifon_luminousity.png")
         iv.clipsToBounds = true
         return iv
     }()
     
-    let maxRainLabel: UILabel = {
+    var maxRainLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
@@ -57,7 +49,7 @@ class DetailsSummaryCell: UITableViewCell {
         return label
     }()
     
-    let minRainLabel: UILabel = {
+    var minRainLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
@@ -69,57 +61,56 @@ class DetailsSummaryCell: UITableViewCell {
     }()
     
     //the bottom half of summarry views.
-    let windDirectionView: UIView = {
+    var windDirectionView: UIView = {
        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .green
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.autoresizesSubviews = true
         return view
     }()
     
-    let windDirectionImageView: UIImageView = {
+    var windDirectionImageView: UIImageView = {
         var iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.contentMode = .scaleAspectFill
-        iv.image = #imageLiteral(resourceName: "default_avatar")
+        let image = SVGKImage(named: "saifon-wind-direction")
+        iv.image = image?.uiImage
         iv.clipsToBounds = true
         return iv
     }()
     
-    let windDirectionTextview: UITextView = {
+    var windDirectionTextview: UITextView = {
        let tv = UITextView()
         tv.translatesAutoresizingMaskIntoConstraints = false
         
         var attributedText = NSMutableAttributedString(string: "Wind Direction", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10, weight: UIFont.Weight.medium)])
         attributedText.append(NSAttributedString(string: "\nNW", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)]))
         tv.attributedText = attributedText
-        
         tv.isScrollEnabled = false
         tv.isEditable = false
         tv.textAlignment = .center
         return tv
     }()
     
-    let windSpeedView: UIView = {
+    var windSpeedView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .red
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.autoresizesSubviews = true
         return view
     }()
     
-    let windSpeedImageView: UIImageView = {
+    var windSpeedImageView: UIImageView = {
         var iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.contentMode = .scaleAspectFill
-        iv.image = #imageLiteral(resourceName: "default_avatar")
+        let image = SVGKImage(named: "saifon-wind-speed")
+        iv.image = image?.uiImage
         iv.clipsToBounds = true
         return iv
     }()
     
-    let windSpeedTextview: UITextView = {
+    var windSpeedTextview: UITextView = {
         let tv = UITextView()
         tv.translatesAutoresizingMaskIntoConstraints = false
         
@@ -133,25 +124,25 @@ class DetailsSummaryCell: UITableViewCell {
         return tv
     }()
     
-    let humidityView: UIView = {
+    var humidityView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .yellow
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.autoresizesSubviews = true
         return view
     }()
     
-    let humidityImageView: UIImageView = {
+    var humidityImageView: UIImageView = {
         var iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.contentMode = .scaleAspectFill
-        iv.image = #imageLiteral(resourceName: "default_avatar")
+        let image = SVGKImage(named: "saifon-humidity")
+        iv.image = image?.uiImage
         iv.clipsToBounds = true
         return iv
     }()
     
-    let humidityTextview: UITextView = {
+    var humidityTextview: UITextView = {
         let tv = UITextView()
         tv.translatesAutoresizingMaskIntoConstraints = false
         
@@ -165,18 +156,18 @@ class DetailsSummaryCell: UITableViewCell {
         return tv
     }()
     
+    var holderView = HolderView()
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         backgroundColor = .lightGray
-        contentView.backgroundColor = .black
+        contentView.backgroundColor = .superLightGray
         setupAutoLayoutForHolderView()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        print(contentView.frame.size, holderView.bounds.size)
         setupAutoLayout()
     }
     
@@ -295,7 +286,6 @@ class DetailsSummaryCell: UITableViewCell {
         humidityTextview.leftAnchor.constraint(equalTo: humidityView.leftAnchor, constant: 8.0).isActive = true
         humidityTextview.rightAnchor.constraint(equalTo: humidityView.rightAnchor, constant: -8.0).isActive = true
         humidityTextview.bottomAnchor.constraint(equalTo: humidityView.bottomAnchor, constant: -4.0).isActive = true
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

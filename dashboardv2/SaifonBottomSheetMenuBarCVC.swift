@@ -14,7 +14,7 @@ protocol SaifonMenuBarDelegate {
 
 class SaifonBottomSheetMenuBarCVC: UICollectionView, UICollectionViewDelegateFlowLayout {
     
-    let menuTitles: [String] = ["Details", "Announcement", "About"]
+    let menuTitles: [String] = ["Details", "Announcement", "Careline", "Notification", "Profile"]
     var menuBarDelegate: SaifonMenuBarDelegate?
     var titleIndex = 0
     
@@ -72,33 +72,19 @@ extension SaifonBottomSheetMenuBarCVC: UICollectionViewDelegate {
         return CGSize(width: width, height: height)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        
-        var totalWidth: CGFloat = 0.0
-        let font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        for cellName in menuTitles {
-            let textWidth = cellName.getStringSize(usingFont: font).width + 16
-            totalWidth += textWidth
-        }
-        
-        let leftInset = (collectionView.frame.width - totalWidth) / 2
-        let rightInset = leftInset
-        
-        return UIEdgeInsetsMake(0, leftInset, 0, rightInset)
-    }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let selectedIndex = indexPath.row
+        let selectedIndex = indexPath.item
         
         for (key, _) in menuTitles.enumerated() {
             let indexPath = IndexPath(row: key, section: 0)
-            let cell = collectionView.cellForItem(at: indexPath) as! SaifonMenuBarTitleCell
+            guard let cell = collectionView.cellForItem(at: indexPath) as? SaifonMenuBarTitleCell else { continue }
             
             let titleColor: UIColor = key == selectedIndex ? .lightPurple : .lightGray
             cell.titleColor = titleColor
         }
         
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         self.menuBarDelegate?.scrollToMenuIndex(toIndex: selectedIndex)
     }
 }

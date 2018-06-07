@@ -7,7 +7,7 @@ target 'dashboardKB' do
 
   # Pods for dashboardv2
 
-#pod 'SVProgressHUD'
+pod 'SVProgressHUD'
 pod 'youtube-ios-player-helper'
 #pod "PlainPing"
 pod 'Cosmos', '~> 8.0'
@@ -25,5 +25,8 @@ pod 'GoogleMaps'
 pod 'GooglePlaces'
 pod 'DKImagePickerController'
 pod 'Charts'
+pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '2.x'
+pod 'Alamofire', '~> 4.7'
+pod 'SwiftyJSON'
 
 end

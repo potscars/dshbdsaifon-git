@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SaifonDetailsProtocol: class {
+    func openRiverDetails()
+}
+
 class SaifonDetailsCell: UICollectionViewCell {
     
     lazy var riverTableView: UITableView = {
@@ -20,11 +24,11 @@ class SaifonDetailsCell: UICollectionViewCell {
         tableView.register(DetailsSummaryCell.self, forCellReuseIdentifier: SaifonIdentifier.SummaryTableViewCell)
         tableView.register(DetailsSensorCell.self, forCellReuseIdentifier: SaifonIdentifier.SensorTableViewCell)
         tableView.register(DetailsRiverLevelCell.self, forCellReuseIdentifier: SaifonIdentifier.RiverLevelTableViewCell)
-        tableView.autoresizesSubviews = true
-        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         tableView.separatorStyle = .none
         return tableView
     }()
+    
+    weak var delegate: SaifonDetailsProtocol?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,15 +48,7 @@ class SaifonDetailsCell: UICollectionViewCell {
         riverTableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         riverTableView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         riverTableView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        
-        
         riverTableView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        print("RIVERTABLE: ", riverTableView.frame.size)
     }
 }
 
@@ -111,6 +107,10 @@ extension SaifonDetailsCell: UITableViewDelegate {
         } else {
             return 306.0
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.delegate?.openRiverDetails()
     }
 }
 

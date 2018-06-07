@@ -10,7 +10,7 @@ import UIKit
 
 class RiverLevelDetailsView: UIView {
     
-    let featuredImageView: UIImageView = {
+    var featuredImageView: UIImageView = {
         var iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.contentMode = .scaleAspectFill
@@ -19,7 +19,7 @@ class RiverLevelDetailsView: UIView {
         return iv
     }()
     
-    let riverNameLabel: UILabel = {
+    var riverNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -29,7 +29,7 @@ class RiverLevelDetailsView: UIView {
         return label
     }()
     
-    let riverLevelStackView: UIStackView = {
+    var riverLevelStackView: UIStackView = {
        let sv = UIStackView()
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.axis = .horizontal
@@ -38,7 +38,7 @@ class RiverLevelDetailsView: UIView {
         return sv
     }()
     
-    let currentRiverLevelLabel: UILabel = {
+    var currentRiverLevelLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -47,7 +47,7 @@ class RiverLevelDetailsView: UIView {
         return label
     }()
     
-    let differenceRiverLevelLabel: UILabel = {
+    var differenceRiverLevelLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -56,7 +56,7 @@ class RiverLevelDetailsView: UIView {
         return label
     }()
     
-    let previousWaterLevelLabel: UILabel = {
+    var previousWaterLevelLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -79,7 +79,6 @@ class RiverLevelDetailsView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
     }
     
     private func setupAutoLayout() {

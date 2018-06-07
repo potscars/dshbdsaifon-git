@@ -15,7 +15,6 @@ class AnnouncementContentCell: UITableViewCell {
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.contentMode = .scaleAspectFill
         iv.image = #imageLiteral(resourceName: "default_avatar")
-        iv.clipsToBounds = true
         return iv
     }()
     
@@ -43,15 +42,11 @@ class AnnouncementContentCell: UITableViewCell {
         
         var tv = UITextView()
         tv.translatesAutoresizingMaskIntoConstraints = false
-        
-        var attributedText = NSMutableAttributedString(string: "Amaran Ribut Petir", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.medium)])
-        attributedText.append(NSAttributedString(string: "\n\nDikeluarkan pada: 5 February 2018, 03:05:23 AM.", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)]))
-        attributedText.append(NSAttributedString(string: "\n\nThe line is displayed so that the beginning fits in the container and the missing text at the end of the line is indicated by an ellipsis glyph. Although this mode works for multiline text, it is more often used for single line text. The line is displayed so that the beginning fits in the container and the missing text at the end of the line is indicated by an ellipsis glyph. Although this mode works for multiline text, it is more often used for single line text.", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)]))
-        tv.attributedText = attributedText
         tv.textContainer.maximumNumberOfLines = 10
         tv.textContainer.lineBreakMode = .byTruncatingTail
         tv.isScrollEnabled = false
         tv.isEditable = false
+        tv.isUserInteractionEnabled = false
         
         return tv
     }()
@@ -80,6 +75,7 @@ class AnnouncementContentCell: UITableViewCell {
         holderView.layoutSubviews()
     }
     
+    //setup layout untuk content dalam cell
     private func setupAutoLayoutForHolderViewSubviews() {
         
         holderView.addSubview(featuredImageView)
@@ -105,8 +101,19 @@ class AnnouncementContentCell: UITableViewCell {
         contentTextview.leftAnchor.constraint(equalTo: holderView.leftAnchor, constant: 8.0).isActive = true
         contentTextview.rightAnchor.constraint(equalTo: holderView.rightAnchor, constant: -8.0).isActive = true
         contentTextview.bottomAnchor.constraint(equalTo: holderView.bottomAnchor, constant: -8.0).isActive = true
+    }
+    
+    func updateView() {
         
-        layoutSubviews()
+        DispatchQueue.main.async {
+            self.featuredImageView.layer.cornerRadius = self.featuredImageView.frame.width / 2
+            self.featuredImageView.layer.masksToBounds = true
+        }
+        
+        let attributedText = NSMutableAttributedString(string: "Amaran Ribut Petir", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.medium)])
+        attributedText.append(NSAttributedString(string: "\n\nDikeluarkan pada: 5 February 2018, 03:05:23 AM.", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)]))
+        attributedText.append(NSAttributedString(string: "\n\nThe line is displayed so that the beginning fits in the container and the missing text at the end of the line is indicated by an ellipsis glyph. Although this mode works for multiline text, it is more often used for single line text. The line is displayed so that the beginning fits in the container and the missing text at the end of the line is indicated by an ellipsis glyph. Although this mode works for multiline text, it is more often used for single line text.", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)]))
+        contentTextview.attributedText = attributedText
     }
     
     required init?(coder aDecoder: NSCoder) {

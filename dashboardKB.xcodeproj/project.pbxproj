@@ -17,11 +17,26 @@
 		9E2081CD2034908B00943153 /* DetailsSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2081CC2034908B00943153 /* DetailsSummaryCell.swift */; };
 		9E2081CF2034909F00943153 /* DetailsSensorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2081CE2034909F00943153 /* DetailsSensorCell.swift */; };
 		9E2081D1203490B300943153 /* DetailsRiverLevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2081D0203490B300943153 /* DetailsRiverLevelCell.swift */; };
+		9E3E8DA6209C58E000B64932 /* PinMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3E8DA5209C58E000B64932 /* PinMarker.swift */; };
 		9E3EE8A3203C37DC0096A9A7 /* SaifonAnnouncementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3EE8A2203C37DC0096A9A7 /* SaifonAnnouncementCell.swift */; };
 		9E3EE8A5203C39730096A9A7 /* AnnouncementContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3EE8A4203C39730096A9A7 /* AnnouncementContentCell.swift */; };
+		9E3F7CE120C911E500BED0E6 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F7CE020C911E500BED0E6 /* Announcement.swift */; };
+		9E3F7CE320C9165000BED0E6 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F7CE220C9165000BED0E6 /* Comment.swift */; };
+		9E3FB070207EFFC10030C17F /* SaifonNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3FB06F207EFFC10030C17F /* SaifonNotificationCell.swift */; };
+		9E3FB072207F09CC0030C17F /* AnnouncementDetailsSaifonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3FB071207F09CC0030C17F /* AnnouncementDetailsSaifonVC.swift */; };
+		9E3FB075207F187D0030C17F /* SaifonProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3FB074207F187D0030C17F /* SaifonProfileCell.swift */; };
+		9E3FB077207F1B4F0030C17F /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3FB076207F1B4F0030C17F /* NotificationCell.swift */; };
+		9E3FB079207F34740030C17F /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3FB078207F34740030C17F /* ProfileHeaderView.swift */; };
+		9E3FB07B207F4FAE0030C17F /* ProfileSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3FB07A207F4FAE0030C17F /* ProfileSettingsCell.swift */; };
+		9E3FB080207F91000030C17F /* saifon-wind-direction.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9E3FB07D207F90FE0030C17F /* saifon-wind-direction.svg */; };
+		9E3FB081207F91000030C17F /* saifon-wind-speed.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9E3FB07E207F90FF0030C17F /* saifon-wind-speed.svg */; };
+		9E3FB082207F91000030C17F /* saifon-humidity.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9E3FB07F207F90FF0030C17F /* saifon-humidity.svg */; };
+		9E436575208EEC2800125C1C /* ListImagesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E436574208EEC2800125C1C /* ListImagesTVC.swift */; };
 		9E48B12D203B38A1000ACA8B /* RiverLevelDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E48B12C203B38A1000ACA8B /* RiverLevelDetailsView.swift */; };
 		9E48B12F203B3E1A000ACA8B /* RiverLevelGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E48B12E203B3E1A000ACA8B /* RiverLevelGraphView.swift */; };
 		9E48B133203C03B4000ACA8B /* RiverCautionsLevelStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E48B132203C03B4000ACA8B /* RiverCautionsLevelStackView.swift */; };
+		9E668C42209ACBBC007981D4 /* Careline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E668C41209ACBBC007981D4 /* Careline.swift */; };
+		9E668C44209AFAA8007981D4 /* RiverLevelDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E668C43209AFAA8007981D4 /* RiverLevelDetailsVC.swift */; };
 		9E6B1D40203D2B7C0007F171 /* SaifonAboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6B1D3F203D2B7C0007F171 /* SaifonAboutCell.swift */; };
 		9E6B1D42203D2CA30007F171 /* EmergencyInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6B1D41203D2CA30007F171 /* EmergencyInfoCell.swift */; };
 		9E93B8591EDFE9A30090F62D /* MyPlaceMainAutoCompleteResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E93B8581EDFE9A30090F62D /* MyPlaceMainAutoCompleteResultVC.swift */; };
@@ -29,6 +44,8 @@
 		9EB0977E1EF8D69D004E8661 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB0977D1EF8D69D004E8661 /* HeaderView.swift */; };
 		9EB5B618202B0CC000CC6D0E /* RiverLevelGraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5B617202B0CC000CC6D0E /* RiverLevelGraphCell.swift */; };
 		9EB5B61A202B287900CC6D0E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5B619202B287900CC6D0E /* Extension.swift */; };
+		9EC97933209AB51C000C47AF /* AnnouncementCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC97931209AB51C000C47AF /* AnnouncementCommentCell.swift */; };
+		9EC97934209AB51C000C47AF /* AnnouncementCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EC97932209AB51C000C47AF /* AnnouncementCommentCell.xib */; };
 		9ED280F11EE55AB8008399CE /* MyPlaceFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED280F01EE55AB8008399CE /* MyPlaceFilterVC.swift */; };
 		9ED280F31EE56103008399CE /* SortOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED280F21EE56103008399CE /* SortOptionsCell.swift */; };
 		9ED280F51EE5615B008399CE /* FilterOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED280F41EE5615B008399CE /* FilterOptionsCell.swift */; };
@@ -40,7 +57,6 @@
 		9EE99EEC1EF0F61100499C6C /* CategoryMenuTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE99EEB1EF0F61100499C6C /* CategoryMenuTVC.swift */; };
 		9EE99EEE1EF1241F00499C6C /* SearchResultDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE99EED1EF1241F00499C6C /* SearchResultDetailsVC.swift */; };
 		9EE99EF01EF1254E00499C6C /* SearchResultDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE99EEF1EF1254E00499C6C /* SearchResultDetailsCell.swift */; };
-		9EEE8B752035550E003E3BD9 /* DetailsSensorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EEE8B742035550E003E3BD9 /* DetailsSensorCell.xib */; };
 		9EEFD454204660F200E13AAE /* PlaceHolderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEFD453204660F200E13AAE /* PlaceHolderCell.swift */; };
 		B72B91A71E42D53400F1BF99 /* ic_chat.png in Resources */ = {isa = PBXBuildFile; fileRef = B72B91A51E42D53400F1BF99 /* ic_chat.png */; };
 		B72B91A81E42D53400F1BF99 /* ic_view.png in Resources */ = {isa = PBXBuildFile; fileRef = B72B91A61E42D53400F1BF99 /* ic_view.png */; };
@@ -260,11 +276,26 @@
 		9E2081CC2034908B00943153 /* DetailsSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsSummaryCell.swift; sourceTree = "<group>"; };
 		9E2081CE2034909F00943153 /* DetailsSensorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsSensorCell.swift; sourceTree = "<group>"; };
 		9E2081D0203490B300943153 /* DetailsRiverLevelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsRiverLevelCell.swift; sourceTree = "<group>"; };
+		9E3E8DA5209C58E000B64932 /* PinMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinMarker.swift; sourceTree = "<group>"; };
 		9E3EE8A2203C37DC0096A9A7 /* SaifonAnnouncementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaifonAnnouncementCell.swift; sourceTree = "<group>"; };
 		9E3EE8A4203C39730096A9A7 /* AnnouncementContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementContentCell.swift; sourceTree = "<group>"; };
+		9E3F7CE020C911E500BED0E6 /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
+		9E3F7CE220C9165000BED0E6 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		9E3FB06F207EFFC10030C17F /* SaifonNotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaifonNotificationCell.swift; sourceTree = "<group>"; };
+		9E3FB071207F09CC0030C17F /* AnnouncementDetailsSaifonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementDetailsSaifonVC.swift; sourceTree = "<group>"; };
+		9E3FB074207F187D0030C17F /* SaifonProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaifonProfileCell.swift; sourceTree = "<group>"; };
+		9E3FB076207F1B4F0030C17F /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		9E3FB078207F34740030C17F /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		9E3FB07A207F4FAE0030C17F /* ProfileSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsCell.swift; sourceTree = "<group>"; };
+		9E3FB07D207F90FE0030C17F /* saifon-wind-direction.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "saifon-wind-direction.svg"; sourceTree = "<group>"; };
+		9E3FB07E207F90FF0030C17F /* saifon-wind-speed.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "saifon-wind-speed.svg"; sourceTree = "<group>"; };
+		9E3FB07F207F90FF0030C17F /* saifon-humidity.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "saifon-humidity.svg"; sourceTree = "<group>"; };
+		9E436574208EEC2800125C1C /* ListImagesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListImagesTVC.swift; sourceTree = "<group>"; };
 		9E48B12C203B38A1000ACA8B /* RiverLevelDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiverLevelDetailsView.swift; sourceTree = "<group>"; };
 		9E48B12E203B3E1A000ACA8B /* RiverLevelGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiverLevelGraphView.swift; sourceTree = "<group>"; };
 		9E48B132203C03B4000ACA8B /* RiverCautionsLevelStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiverCautionsLevelStackView.swift; sourceTree = "<group>"; };
+		9E668C41209ACBBC007981D4 /* Careline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Careline.swift; sourceTree = "<group>"; };
+		9E668C43209AFAA8007981D4 /* RiverLevelDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiverLevelDetailsVC.swift; sourceTree = "<group>"; };
 		9E6B1D3F203D2B7C0007F171 /* SaifonAboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaifonAboutCell.swift; sourceTree = "<group>"; };
 		9E6B1D41203D2CA30007F171 /* EmergencyInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyInfoCell.swift; sourceTree = "<group>"; };
 		9E76057A1EC1C7F2005B3C9C /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
@@ -278,6 +309,8 @@
 		9EB0977D1EF8D69D004E8661 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		9EB5B617202B0CC000CC6D0E /* RiverLevelGraphCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiverLevelGraphCell.swift; sourceTree = "<group>"; };
 		9EB5B619202B287900CC6D0E /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		9EC97931209AB51C000C47AF /* AnnouncementCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementCommentCell.swift; sourceTree = "<group>"; };
+		9EC97932209AB51C000C47AF /* AnnouncementCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnnouncementCommentCell.xib; sourceTree = "<group>"; };
 		9ED280F01EE55AB8008399CE /* MyPlaceFilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPlaceFilterVC.swift; sourceTree = "<group>"; };
 		9ED280F21EE56103008399CE /* SortOptionsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortOptionsCell.swift; sourceTree = "<group>"; };
 		9ED280F41EE5615B008399CE /* FilterOptionsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterOptionsCell.swift; sourceTree = "<group>"; };
@@ -289,7 +322,6 @@
 		9EE99EEB1EF0F61100499C6C /* CategoryMenuTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryMenuTVC.swift; sourceTree = "<group>"; };
 		9EE99EED1EF1241F00499C6C /* SearchResultDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultDetailsVC.swift; sourceTree = "<group>"; };
 		9EE99EEF1EF1254E00499C6C /* SearchResultDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultDetailsCell.swift; sourceTree = "<group>"; };
-		9EEE8B742035550E003E3BD9 /* DetailsSensorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsSensorCell.xib; sourceTree = "<group>"; };
 		9EEFD453204660F200E13AAE /* PlaceHolderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolderCell.swift; sourceTree = "<group>"; };
 		B72B91A51E42D53400F1BF99 /* ic_chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_chat.png; path = "[[Resources]]/ic_chat.png"; sourceTree = SOURCE_ROOT; };
 		B72B91A61E42D53400F1BF99 /* ic_view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_view.png; path = "[[Resources]]/ic_view.png"; sourceTree = SOURCE_ROOT; };
@@ -535,45 +567,106 @@
 				9E2081BF2034126E00943153 /* SaifonBottomSheetVC.swift */,
 				9E2081C120341C3B00943153 /* SaifonBottomSheetMenuBarCVC.swift */,
 				9E2081C32034244400943153 /* SaifonMenuBarTitleCell.swift */,
-				9E6B1D3E203D28910007F171 /* AboutCell */,
-				9E3EE8A1203C37260096A9A7 /* AnnouncementCell */,
-				9E2081CB2034905D00943153 /* DetailsCell */,
+				9E3E8DA5209C58E000B64932 /* PinMarker.swift */,
+				9E6B1D3E203D28910007F171 /* Carelines */,
+				9E3EE8A1203C37260096A9A7 /* Announcement */,
+				9E2081CB2034905D00943153 /* Details */,
+				9E3FB06E207EFF110030C17F /* Notification */,
+				9E3FB073207F18390030C17F /* Profile */,
 			);
 			name = "Saifon(NEW)";
 			sourceTree = "<group>";
 		};
-		9E2081CB2034905D00943153 /* DetailsCell */ = {
+		9E2081CB2034905D00943153 /* Details */ = {
 			isa = PBXGroup;
 			children = (
 				9E2081C72034416B00943153 /* SaifonDetailsCell.swift */,
 				9E2081CC2034908B00943153 /* DetailsSummaryCell.swift */,
 				9E2081CE2034909F00943153 /* DetailsSensorCell.swift */,
-				9EEE8B742035550E003E3BD9 /* DetailsSensorCell.xib */,
 				9E2081D0203490B300943153 /* DetailsRiverLevelCell.swift */,
 				9E48B12C203B38A1000ACA8B /* RiverLevelDetailsView.swift */,
 				9E48B132203C03B4000ACA8B /* RiverCautionsLevelStackView.swift */,
 				9E48B12E203B3E1A000ACA8B /* RiverLevelGraphView.swift */,
+				9E668C43209AFAA8007981D4 /* RiverLevelDetailsVC.swift */,
 			);
-			name = DetailsCell;
+			name = Details;
 			sourceTree = "<group>";
 		};
-		9E3EE8A1203C37260096A9A7 /* AnnouncementCell */ = {
+		9E3EE8A1203C37260096A9A7 /* Announcement */ = {
 			isa = PBXGroup;
 			children = (
 				9E3EE8A2203C37DC0096A9A7 /* SaifonAnnouncementCell.swift */,
 				9E3EE8A4203C39730096A9A7 /* AnnouncementContentCell.swift */,
+				9E3FB071207F09CC0030C17F /* AnnouncementDetailsSaifonVC.swift */,
+				9E436574208EEC2800125C1C /* ListImagesTVC.swift */,
 				9ED81C82203D5F3200C480F1 /* HolderView.swift */,
+				9EC97931209AB51C000C47AF /* AnnouncementCommentCell.swift */,
+				9EC97932209AB51C000C47AF /* AnnouncementCommentCell.xib */,
 			);
-			name = AnnouncementCell;
+			name = Announcement;
 			sourceTree = "<group>";
 		};
-		9E6B1D3E203D28910007F171 /* AboutCell */ = {
+		9E3F7CDE20C8ECB300BED0E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9E3F7CE420C917E800BED0E6 /* Announcement */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9E3F7CDF20C8ECBD00BED0E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		9E3F7CE420C917E800BED0E6 /* Announcement */ = {
+			isa = PBXGroup;
+			children = (
+				9E3F7CE020C911E500BED0E6 /* Announcement.swift */,
+				9E3F7CE220C9165000BED0E6 /* Comment.swift */,
+			);
+			name = Announcement;
+			sourceTree = "<group>";
+		};
+		9E3FB06E207EFF110030C17F /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				9E3FB06F207EFFC10030C17F /* SaifonNotificationCell.swift */,
+				9E3FB076207F1B4F0030C17F /* NotificationCell.swift */,
+			);
+			name = Notification;
+			sourceTree = "<group>";
+		};
+		9E3FB073207F18390030C17F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				9E3FB074207F187D0030C17F /* SaifonProfileCell.swift */,
+				9E3FB07A207F4FAE0030C17F /* ProfileSettingsCell.swift */,
+				9E3FB078207F34740030C17F /* ProfileHeaderView.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		9E3FB07C207F90C80030C17F /* SVGImages */ = {
+			isa = PBXGroup;
+			children = (
+				9E3FB07F207F90FF0030C17F /* saifon-humidity.svg */,
+				9E3FB07D207F90FE0030C17F /* saifon-wind-direction.svg */,
+				9E3FB07E207F90FF0030C17F /* saifon-wind-speed.svg */,
+			);
+			name = SVGImages;
+			sourceTree = "<group>";
+		};
+		9E6B1D3E203D28910007F171 /* Carelines */ = {
 			isa = PBXGroup;
 			children = (
 				9E6B1D3F203D2B7C0007F171 /* SaifonAboutCell.swift */,
 				9E6B1D41203D2CA30007F171 /* EmergencyInfoCell.swift */,
+				9E668C41209ACBBC007981D4 /* Careline.swift */,
 			);
-			name = AboutCell;
+			name = Carelines;
 			sourceTree = "<group>";
 		};
 		9ED280F61EE66B57008399CE /* MyPlaceFilter */ = {
@@ -719,6 +812,7 @@
 		B74D33721DF5164D00208A03 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9E3FB07C207F90C80030C17F /* SVGImages */,
 				B7B2CC641E6535480045333C /* SaifonSprites */,
 				B7DC3A0E1E14CFB500951852 /* Fonts */,
 				B74D33781DF68A3A00208A03 /* Predefined */,
@@ -870,6 +964,8 @@
 		B7A3C6F51DE82F5600CB7864 /* dashboardv2 */ = {
 			isa = PBXGroup;
 			children = (
+				9E3F7CDF20C8ECBD00BED0E6 /* View */,
+				9E3F7CDE20C8ECB300BED0E6 /* Model */,
 				B7C3F6551E124BB000CC1A09 /* Controllers */,
 				B74D33721DF5164D00208A03 /* Resources */,
 				B7A3C7081DEAEDB200CB7864 /* Libraries */,
@@ -1194,7 +1290,10 @@
 				B7DC3A121E14E3BD00951852 /* ic_bannerdbi.png in Resources */,
 				B7F975E61FFDDBDF00115E76 /* GoogleService-Info.plist in Resources */,
 				B792EE1F1FF3519A00FA461C /* RobotoCondensed-BoldItalic.ttf in Resources */,
+				9E3FB081207F91000030C17F /* saifon-wind-speed.svg in Resources */,
 				B74000271E9CD15800E1B872 /* ic_myplace_filter@3x.png in Resources */,
+				9EC97934209AB51C000C47AF /* AnnouncementCommentCell.xib in Resources */,
+				9E3FB080207F91000030C17F /* saifon-wind-direction.svg in Resources */,
 				B7CBEF701E9F6C6F00BE4454 /* ic_myplace_edit_content@2x.png in Resources */,
 				B7DC39FC1E139F3B00951852 /* ic_myhealth@2x.png in Resources */,
 				B77BB1971E6FA92B0029611E /* ic_saifonweather_bg.png in Resources */,
@@ -1215,7 +1314,6 @@
 				B779CA1A1E6D5DC800843734 /* ic_saifon_compasspointer.png in Resources */,
 				B7DC3A051E139F3B00951852 /* ic_myskool@2x.png in Resources */,
 				B740002C1E9CD15800E1B872 /* ic_myplace_profile@2x.png in Resources */,
-				9EEE8B752035550E003E3BD9 /* DetailsSensorCell.xib in Resources */,
 				B72B91A71E42D53400F1BF99 /* ic_chat.png in Resources */,
 				B7D03ABC1E7FB67100AB0F3E /* ic_bannerdb_kb.png in Resources */,
 				B7DC3A001E139F3B00951852 /* ic_mykomuniti@3x.png in Resources */,
@@ -1262,6 +1360,7 @@
 				B791F8671E70FA8600844350 /* ic_saifon_pressure.png in Resources */,
 				B77B75BB1E986C6800A1F079 /* ic_saifon_logo_trans@3x.png in Resources */,
 				B74000241E9CD15800E1B872 /* ic_myplace_add@3x.png in Resources */,
+				9E3FB082207F91000030C17F /* saifon-humidity.svg in Resources */,
 				B7632CA11E764FB200202FE6 /* ic_mailbox@2x.png in Resources */,
 				B7D03AB81E7FB0DE00AB0F3E /* ic_menu_mysoal_washed in Resources */,
 				B7D03AA21E7B8FFD00AB0F3E /* ic_plane_white@3x.png in Resources */,
@@ -1283,6 +1382,7 @@
 				"${BUILT_PRODUCTS_DIR}/BSImagePicker/BSImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/Compass/Compass.framework",
 				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/DKImagePickerController/DKImagePickerController.framework",
@@ -1297,6 +1397,7 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
 				"${BUILT_PRODUCTS_DIR}/UIImageViewModeScaleAspect/UIImageViewModeScaleAspect.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
@@ -1307,6 +1408,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Compass.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKImagePickerController.framework",
@@ -1321,6 +1423,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImageViewModeScaleAspect.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
@@ -1342,7 +1445,8 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1378,6 +1482,7 @@
 				B78E628A1DF7E00900D9767D /* ZDeviceInfo.swift in Sources */,
 				B74F0EBF1E278AF1003887E4 /* DBPrefObject.swift in Sources */,
 				B7DC39D81E1258F200951852 /* AfterLoginNC.swift in Sources */,
+				9E668C42209ACBBC007981D4 /* Careline.swift in Sources */,
 				B73BD8061E51B12F0036EBEF /* AImportanceDBTVCell.swift in Sources */,
 				9EE99EE81EEFBA2E00499C6C /* MyPlaceSearchResultVC.swift in Sources */,
 				B739662D1E1CDBE900B270A1 /* MyKomunitiDetailsTVCell.swift in Sources */,
@@ -1388,12 +1493,14 @@
 				9E2081C02034126E00943153 /* SaifonBottomSheetVC.swift in Sources */,
 				B7A3C70A1DEAEE2300CB7864 /* ZGraphics.swift in Sources */,
 				9E48B12F203B3E1A000ACA8B /* RiverLevelGraphView.swift in Sources */,
+				9E3F7CE120C911E500BED0E6 /* Announcement.swift in Sources */,
 				B72B91AB1E4311E700F1BF99 /* MyShopLatestProdTVC.swift in Sources */,
 				B7B9A6E71E2F47EC006689C9 /* MySoalIntegratedTVCell.swift in Sources */,
 				B74D337F1DF6A2A200208A03 /* DBSettings.swift in Sources */,
 				B7EF41A91E37072100262A0B /* MyHealthIntegratedTVCell.swift in Sources */,
 				B7DC3A191E14EEE500951852 /* AboutTVC.swift in Sources */,
 				B779CA0F1E6D575800843734 /* WeatherIntegratedTVCell.swift in Sources */,
+				9E3FB072207F09CC0030C17F /* AnnouncementDetailsSaifonVC.swift in Sources */,
 				B7632CAE1E768D6E00202FE6 /* MyKomunitiSendMessageTVCell.swift in Sources */,
 				9E2081C92034416B00943153 /* SaifonDetailsCell.swift in Sources */,
 				B73966291E1CA42300B270A1 /* MyKomunitiMainTVCell.swift in Sources */,
@@ -1404,6 +1511,7 @@
 				9E2081BE2034124D00943153 /* SaifonMainVC.swift in Sources */,
 				B73F551D1E66C3B700D03203 /* WaterLevelMainTVC.swift in Sources */,
 				B73966321E1E27EB00B270A1 /* MyKomunitiMainAdminTVC.swift in Sources */,
+				9E3FB075207F187D0030C17F /* SaifonProfileCell.swift in Sources */,
 				9ED280F11EE55AB8008399CE /* MyPlaceFilterVC.swift in Sources */,
 				B75C5AA81E3AEC3C009FD4E6 /* MyHealthBWDetailsTVC.swift in Sources */,
 				9E2081C220341C3B00943153 /* SaifonBottomSheetMenuBarCVC.swift in Sources */,
@@ -1413,6 +1521,7 @@
 				B76D256D1E56F43800280415 /* SettingsExtendedTVCell.swift in Sources */,
 				B76CA39E1E86212B00DA2AF0 /* ProfileIntegratedTVCell.swift in Sources */,
 				B7E311831E486A95003949CF /* MyShopProductDetailsTVC.swift in Sources */,
+				9E3F7CE320C9165000BED0E6 /* Comment.swift in Sources */,
 				B7B73ACA1E1B9C40000680FF /* SettingsTVC.swift in Sources */,
 				B7DC3A171E14ED7100951852 /* AYTPlayerTVCell.swift in Sources */,
 				9ED280F31EE56103008399CE /* SortOptionsCell.swift in Sources */,
@@ -1427,6 +1536,7 @@
 				B7908B091FFC96D2005FDD1C /* NetworkProcessor.swift in Sources */,
 				B74F0EBD1E2732AD003887E4 /* MyKomunitiLoadMoreDataTVCell.swift in Sources */,
 				B74D337A1DF68ABB00208A03 /* DBColorSet.swift in Sources */,
+				9E3FB079207F34740030C17F /* ProfileHeaderView.swift in Sources */,
 				9EB5B618202B0CC000CC6D0E /* RiverLevelGraphCell.swift in Sources */,
 				B79167711E35BBAA00383CAD /* MySoalDetailsTVC.swift in Sources */,
 				B77855F31E8365EE0082EB9C /* DBConnResponse.swift in Sources */,
@@ -1444,10 +1554,13 @@
 				B7A797A01E67F29D0086AAFE /* DBWaterLevel.swift in Sources */,
 				B76CA3A61E88E2A300DA2AF0 /* AboutKBIntegratedTVCell.swift in Sources */,
 				9E48B133203C03B4000ACA8B /* RiverCautionsLevelStackView.swift in Sources */,
+				9E436575208EEC2800125C1C /* ListImagesTVC.swift in Sources */,
 				9ED280F51EE5615B008399CE /* FilterOptionsCell.swift in Sources */,
+				9E3FB07B207F4FAE0030C17F /* ProfileSettingsCell.swift in Sources */,
 				B79E6F401E8E04830045A15C /* MyPlaceMainVC.swift in Sources */,
 				B7CBEF691E9F5DAC00BE4454 /* MyPlaceProfileHistoryTVCell.swift in Sources */,
 				B7EF41AB1E37074600262A0B /* MyHealthBodyWeightTVC.swift in Sources */,
+				9EC97933209AB51C000C47AF /* AnnouncementCommentCell.swift in Sources */,
 				9EE99EF01EF1254E00499C6C /* SearchResultDetailsCell.swift in Sources */,
 				9EE99EEA1EEFE4A200499C6C /* StatesMenuTVC.swift in Sources */,
 				B7DC3A0B1E13B6AD00951852 /* DBMenus.swift in Sources */,
@@ -1464,6 +1577,7 @@
 				9E93B85B1EE0058F0090F62D /* MapTasks.swift in Sources */,
 				B73EF08A1E41B8B1001B3ADB /* MyShopMainMenuTVC.swift in Sources */,
 				B74D33811DF6AAE300208A03 /* DBWebServices.swift in Sources */,
+				9E3E8DA6209C58E000B64932 /* PinMarker.swift in Sources */,
 				B791677C1E36065500383CAD /* MySkoolDetailsTVCell.swift in Sources */,
 				9E2081C42034244400943153 /* SaifonMenuBarTitleCell.swift in Sources */,
 				B73966361E1E3C2700B270A1 /* ZParsers.swift in Sources */,
@@ -1477,6 +1591,7 @@
 				B73F551F1E66C40C00D03203 /* WaterLevelIntegratedTVCell.swift in Sources */,
 				B794CF3D1E3994BF00C40BF9 /* ZDateTime.swift in Sources */,
 				B791677A1E3605A400383CAD /* MySkoolDetailsTVC.swift in Sources */,
+				9E668C44209AFAA8007981D4 /* RiverLevelDetailsVC.swift in Sources */,
 				B74D33771DF6649300208A03 /* ZUIs.swift in Sources */,
 				9ED280FB1EE6AFF5008399CE /* PhotoHolderCell.swift in Sources */,
 				B79167731E35BBF500383CAD /* MySoalDetailsTVCell.swift in Sources */,
@@ -1488,7 +1603,9 @@
 				B7DC39DA1E125F0900951852 /* BeforeLoginNC.swift in Sources */,
 				B7CBEF6B1E9F614500BE4454 /* MyPlaceProfileVC.swift in Sources */,
 				B7BB51861E24912400F9EB3E /* ZUISetup.swift in Sources */,
+				9E3FB070207EFFC10030C17F /* SaifonNotificationCell.swift in Sources */,
 				9EE99EEC1EF0F61100499C6C /* CategoryMenuTVC.swift in Sources */,
+				9E3FB077207F1B4F0030C17F /* NotificationCell.swift in Sources */,
 				B73966301E1DF63500B270A1 /* ZNetwork.swift in Sources */,
 				B7A797A41E6810AB0086AAFE /* WaterLevelDetailsTVC.swift in Sources */,
 				B7DC3A1B1E14F42A00951852 /* DBImages.swift in Sources */,

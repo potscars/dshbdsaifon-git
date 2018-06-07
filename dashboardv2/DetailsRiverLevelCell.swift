@@ -9,20 +9,13 @@
 import UIKit
 
 class DetailsRiverLevelCell: UITableViewCell {
-
-    let holderView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .lightBlue
-        return view
-    }()
     
     let venueNameLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .white
+        label.textColor = .darkGray
         label.text = "Kampung Piasau"
-        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return label
     }()
     
@@ -33,14 +26,12 @@ class DetailsRiverLevelCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         backgroundColor = .lightGray
-        contentView.backgroundColor = .black
-        setupAutoLayout()
+        contentView.backgroundColor = .superLightGray
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        
+        setupAutoLayout()
     }
     
     private func setupAutoLayout() {
@@ -58,7 +49,7 @@ class DetailsRiverLevelCell: UITableViewCell {
         riverLevelDetailsView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 8.0).isActive = true
         riverLevelDetailsView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -8.0).isActive = true
         riverLevelDetailsView.heightAnchor.constraint(equalToConstant: 100.0).isActive = true
-        
+
         riverLevelGraphView.topAnchor.constraint(equalTo: riverLevelDetailsView.bottomAnchor, constant: 8.0).isActive = true
         riverLevelGraphView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 8.0).isActive = true
         riverLevelGraphView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -8.0).isActive = true

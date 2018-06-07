@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+        //UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
         
         print("[AppDelegate] Detected OS: \(UIDevice.current.systemName) \n Detected OS Version: \(UIDevice.current.systemVersion)")
         
@@ -60,8 +60,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     return
                 }
                 if granted {
-                    UIApplication.shared.registerForRemoteNotifications()
-                    print("Noti registered!")
+                    DispatchQueue.main.async {
+                        UIApplication.shared.registerForRemoteNotifications()
+                        print("Noti registered!")
+                    }
                 } else {
                     
                     print("Failed to registered!")

@@ -51,5 +51,4 @@ class DBSettings: NSObject {
     //YTPlayer
     
     static let ytEmbeddedVideo: String = "-S3HyuE368Y"
-    
 }

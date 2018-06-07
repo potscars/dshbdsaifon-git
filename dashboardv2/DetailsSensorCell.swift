@@ -10,32 +10,12 @@ import UIKit
 
 class DetailsSensorCell: UITableViewCell {
     
-    let holderView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .lightBlue
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.autoresizesSubviews = true
-        return view
-    }()
-    
-    let sensorView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .black
-        return view
-    }()
-    
-    override func awakeFromNib() {
-        backgroundColor = .lightGray
-        contentView.backgroundColor = .black
-        setupAutoLayoutForHolderView()
-    }
+    var holderView = HolderView()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .lightGray
-        contentView.backgroundColor = .black
+        contentView.backgroundColor = .superLightGray
         setupAutoLayoutForHolderView()
     }
     
@@ -45,7 +25,7 @@ class DetailsSensorCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        setupAutoLayout()
+        self.setupAutoLayout()
     }
     
     private func setupAutoLayoutForHolderView() {
@@ -57,10 +37,13 @@ class DetailsSensorCell: UITableViewCell {
         holderView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8.0).isActive = true
     }
     
+    var totalSensor = 4 // 0 - 5
+    
     private func setupAutoLayout() {
         
         var tempViewArray: [UIView] = []
-        for i in 0...4 {
+        for _ in 0...totalSensor {
+            
             let tempView = SensorView()
             tempViewArray.append(tempView)
         }
@@ -68,44 +51,56 @@ class DetailsSensorCell: UITableViewCell {
         let sensorWidth = (frame.width - 16) / 3
         let sensorHeight = (frame.height - 16) / 2
         
-        for i in 0...4 {
-            
+        for i in 0...totalSensor {
+
+            guard let sensorView = tempViewArray[i] as? SensorView else { continue }
             holderView.addSubview(tempViewArray[i])
             tempViewArray[i].heightAnchor.constraint(equalToConstant: sensorHeight).isActive = true
             tempViewArray[i].widthAnchor.constraint(equalToConstant: sensorWidth).isActive = true
-            
+
             if i < 3 {
-                
+
                 tempViewArray[i].topAnchor.constraint(equalTo: holderView.topAnchor).isActive = true
                 if i == 0 {
                     tempViewArray[i].leadingAnchor.constraint(equalTo: holderView.leadingAnchor).isActive = true
-                    tempViewArray[i].backgroundColor = .red
+                    addDataToSensorView(withView: sensorView, withImage: #imageLiteral(resourceName: "ic_saifon_carbonmonoxide.png"), type: "Carbon monoxide", value: "22.89 PPM")
                 } else {
-                    
+
                     if i % 2 == 0 {
                         tempViewArray[i].trailingAnchor.constraint(equalTo: holderView.trailingAnchor).isActive = true
-                        tempViewArray[i].backgroundColor = .green
+                        addDataToSensorView(withView: sensorView, withImage: #imageLiteral(resourceName: "ic_saifon_rain_gauge.png"), type: "Rain gauge", value: "22.89 PPM")
                     } else {
                         tempViewArray[i].leadingAnchor.constraint(equalTo: tempViewArray[i - 1].trailingAnchor).isActive = true
+                        addDataToSensorView(withView: sensorView, withImage: #imageLiteral(resourceName: "ic_saifon_pressure.png"), type: "Pressure", value: "22.89 PPM")
                     }
                 }
             } else {
-                
+
                 tempViewArray[i].topAnchor.constraint(equalTo: tempViewArray[0].bottomAnchor).isActive = true
                 if i == 3 {
                     tempViewArray[i].leadingAnchor.constraint(equalTo: holderView.leadingAnchor).isActive = true
-                    tempViewArray[i].backgroundColor = .red
+                    addDataToSensorView(withView: sensorView, withImage: #imageLiteral(resourceName: "ic_saifon_pm10.png"), type: "PM2.5", value: "22.89 PPM")
                 } else {
-                    
+
                     if i % 5 == 0 {
                         tempViewArray[i].trailingAnchor.constraint(equalTo: holderView.trailingAnchor).isActive = true
-                        tempViewArray[i].backgroundColor = .green
                     } else {
                         tempViewArray[i].leadingAnchor.constraint(equalTo: tempViewArray[i - 1].trailingAnchor).isActive = true
+                        addDataToSensorView(withView: sensorView, withImage: #imageLiteral(resourceName: "ic_saifon_luminousity.png"), type: "Luminosity", value: "22.89 PPM")
                     }
                 }
             }
         }
+    }
+    
+    private func addDataToSensorView(withView customView: SensorView, withImage image: UIImage, type: String, value: String) {
+        
+        let attributedText = NSMutableAttributedString(string: type, attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.medium)])
+        attributedText.append(NSAttributedString(string: "\n\(value)", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 10, weight: UIFont.Weight.regular)]))
+        customView.imageView.image = image
+        customView.descriptionTextview.attributedText = attributedText
+        customView.descriptionTextview.textAlignment = .center
+        customView.layoutIfNeeded()
     }
 }
 
@@ -124,23 +119,14 @@ class SensorView: UIView {
        
         var tv = UITextView()
         tv.translatesAutoresizingMaskIntoConstraints = false
-        
-        var attributedText = NSMutableAttributedString(string: "Sensor", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.medium)])
-        attributedText.append(NSAttributedString(string: "\nSensor to the fullest", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 8, weight: UIFont.Weight.regular)]))
-        tv.attributedText = attributedText
-        
         tv.isScrollEnabled = false
         tv.isEditable = false
-        tv.textAlignment = .center
-
         return tv
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .yellow
         translatesAutoresizingMaskIntoConstraints = false
-        
         setupAutoLayout()
     }
     

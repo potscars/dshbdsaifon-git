@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="116" id="KGk-i7-Jjw" customClass="AnnouncementCommentCell" customModule="dashboardKB" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="116"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="115.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1z8-9b-4fi">
+                        <rect key="frame" x="270" y="92" width="42" height="16"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcG-Ga-TR7">
+                                <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="AXw-bj-KSh"/>
+                                    <constraint firstAttribute="width" constant="16" id="Wk3-kO-KSz"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="ic_reply"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlD-Km-86z">
+                                <rect key="frame" x="26" y="0.0" width="16" height="16"/>
+                                <state key="normal" image="ic_thumb_up"/>
+                            </button>
+                        </subviews>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Isaac" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Go-by-80h">
+                        <rect key="frame" x="8" y="8" width="35" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XOR-VM-hx6">
+                        <rect key="frame" x="8" y="25" width="294" height="59"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="4Go-by-80h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="AFd-R0-rwL"/>
+                    <constraint firstItem="4Go-by-80h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Fye-7l-46d"/>
+                    <constraint firstAttribute="trailing" secondItem="1z8-9b-4fi" secondAttribute="trailing" constant="8" id="ML4-V4-4FT"/>
+                    <constraint firstItem="XOR-VM-hx6" firstAttribute="top" secondItem="4Go-by-80h" secondAttribute="bottom" id="T6w-IR-2ZO"/>
+                    <constraint firstAttribute="trailing" secondItem="XOR-VM-hx6" secondAttribute="trailing" constant="18" id="aHj-Wy-2Oz"/>
+                    <constraint firstItem="1z8-9b-4fi" firstAttribute="top" secondItem="XOR-VM-hx6" secondAttribute="bottom" constant="8" id="bUn-0O-mpa"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4Go-by-80h" secondAttribute="trailing" constant="8" id="qpW-h8-3Br"/>
+                    <constraint firstItem="XOR-VM-hx6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="vOB-n6-WSV"/>
+                    <constraint firstAttribute="bottom" secondItem="1z8-9b-4fi" secondAttribute="bottom" constant="7.5" id="yFA-tB-JWJ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="19" y="-56"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_reply" width="24" height="24"/>
+        <image name="ic_thumb_up" width="24" height="24"/>
+    </resources>
+</document>
