@@ -154,6 +154,8 @@ class DBStrings: NSObject {
     // Nama menu
     static let DB_MENU_MYKOMUNITI_EN: String = "MyKomuniti"
     static let DB_MENU_MYKOMUNITI_MS: String = "MyKomuniti"
+    static let DB_MENU_SAIFON_EN: String = "S.A.I.F.O.N."
+    static let DB_MENU_SAIFON_MS: String = "S.A.I.F.O.N."
     static let DB_MENU_MYSOAL_EN: String = "MySoal"
     static let DB_MENU_MYSOAL_MS: String = "MySoal"
     static let DB_MENU_MYSKOOL_EN: String = "MySkool"

@@ -130,20 +130,25 @@ class MainMenuTVC: UITableViewController {
         }
         else if(indexPath.row == 2 && DBWebServices.checkConnectionToDashboard(viewController: self) == true)
         {
-            self.performSegue(withIdentifier: "DB_GOTO_MYSOAL", sender: self)
+            self.performSegue(withIdentifier: "DB_GOTO_SAIFON", sender: self)
             
         }
         else if(indexPath.row == 3 && DBWebServices.checkConnectionToDashboard(viewController: self) == true)
         {
-            self.performSegue(withIdentifier: "DB_GOTO_MYSKOOL", sender: self)
+            self.performSegue(withIdentifier: "DB_GOTO_MYSOAL", sender: self)
             
         }
         else if(indexPath.row == 4 && DBWebServices.checkConnectionToDashboard(viewController: self) == true)
         {
-            self.performSegue(withIdentifier: "DB_GOTO_WATERLEVEL", sender: self)
+            self.performSegue(withIdentifier: "DB_GOTO_MYSKOOL", sender: self)
             
         }
         else if(indexPath.row == 5 && DBWebServices.checkConnectionToDashboard(viewController: self) == true)
+        {
+            self.performSegue(withIdentifier: "DB_GOTO_WATERLEVEL", sender: self)
+            
+        }
+        else if(indexPath.row == 6 && DBWebServices.checkConnectionToDashboard(viewController: self) == true)
         {
             self.performSegue(withIdentifier: "DB_GOTO_WEATHER", sender: self)
             

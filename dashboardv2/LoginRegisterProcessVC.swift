@@ -37,11 +37,13 @@ class LoginRegisterProcessVC: UIViewController {
         
         if(breakDown.value(forKey: "status") as! String == "success") {
             
+            HUD.hide()
             ZUIs.showOKDialogBox(viewController: self, dialogTitle: DBStrings.DB_USER_REG_SUCCESS_TITLE_MS, dialogMessage: DBStrings.DB_USER_REG_SUCCESS_DESC_MS, afterDialogDismissed: "BACK_TO_PREVIOUS_VIEWCONTROLLER")
             
         }
         else {
             
+            HUD.hide()
             ZUIs.showOKDialogBox(viewController: self, dialogTitle: DBStrings.DB_USER_REG_FAILED_TITLE_MS, dialogMessage: DBStrings.DB_USER_REG_FAILED_DESC_MS, afterDialogDismissed: "BACK_TO_PREVIOUS_VIEWCONTROLLER")
             
         }
